@@ -20,7 +20,7 @@
                         'mono': ['IBM Plex Mono', 'Courier New', 'monospace'],
                     },
                     colors: {
-                        'nyt': {
+                        'vn': {
                             'black': '#000000',
                             'darkgray': '#121212',
                             'gray': '#333333',
@@ -50,28 +50,28 @@
             }
         }
     </script>    <style>
-        /* NYT Typography System */
-        .nyt-display {
+        /* vn Typography System */
+        .vn-display {
             font-family: 'Playfair Display', serif;
             font-weight: 800;
             line-height: 1.1;
             letter-spacing: -0.02em;
         }
         
-        .nyt-headline {
+        .vn-headline {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             line-height: 1.2;
             letter-spacing: -0.01em;
         }
         
-        .nyt-body {
+        .vn-body {
             font-family: 'IBM Plex Sans', sans-serif;
             font-weight: 400;
             line-height: 1.6;
         }
         
-        .nyt-label {
+        .vn-label {
             font-family: 'IBM Plex Sans', sans-serif;
             font-weight: 600;
             text-transform: uppercase;
@@ -103,16 +103,16 @@
             border-bottom: 43px solid #004C97;
         }
 
-        /* NYT-style borders and dividers */
-        .nyt-border-top {
+        /* vn-style borders and dividers */
+        .vn-border-top {
             border-top: 4px solid #000000;
         }
         
-        .nyt-border-bottom {
+        .vn-border-bottom {
             border-bottom: 1px solid #E6E6E6;
         }
         
-        .nyt-border-thick {
+        .vn-border-thick {
             border: 3px solid #000000;
         }
 
@@ -159,7 +159,7 @@
         }
 
         /* Loading animation */
-        .nyt-loading {
+        .vn-loading {
             border: 2px solid #E6E6E6;
             border-left: 2px solid #000000;
             border-radius: 50%;
@@ -175,10 +175,10 @@
 
         /* Responsive typography */
         @media (max-width: 640px) {
-            .nyt-display {
+            .vn-display {
                 font-size: 2.5rem;
             }
-            .nyt-headline {
+            .vn-headline {
                 font-size: 1.875rem;
             }
         }
@@ -192,28 +192,22 @@
     </style>
 </head>
 
-<body class="bg-nyt-bg font-sans antialiased" x-data="seoAnalyzer()" x-init="init()">
+<body class="bg-vn-bg font-sans antialiased" x-data="seoAnalyzer()" x-init="init()">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white border-b border-nyt-border backdrop-blur-sm">
+    <nav class="fixed top-0 w-full z-50 bg-white border-b border-vn-border backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-4">
                     <div class="flex items-center">
                         <div class="w-8 h-8 bauhaus-square mr-3 opacity-80"></div>
-                        <h1 class="text-xl font-bold text-nyt-black nyt-headline">WebInspect Studio</h1>
+                        <h1 class="text-xl font-bold text-vn-black vn-headline">WebInspect Studio</h1>
                     </div>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#analyzer" class="nyt-label text-nyt-gray hover:text-nyt-black transition-colors">Analysis</a>
-                    <a href="#reports" class="nyt-label text-nyt-gray hover:text-nyt-black transition-colors">Reports</a>
-                    <a href="#features" class="nyt-label text-nyt-gray hover:text-nyt-black transition-colors">Features</a>
-                    <div class="w-px h-6 bg-nyt-border"></div>
-                    <button 
-                        x-show="analysisData" 
-                        @click="exportToPDF()"
-                        class="bg-nyt-black text-white px-4 py-2 nyt-label hover:bg-nyt-gray transition-colors">
-                        Export PDF
-                    </button>
+                    <a href="#analyzer" class="vn-label text-vn-gray hover:text-vn-black transition-colors">Analysis</a>
+                    <a href="#reports" class="vn-label text-vn-gray hover:text-vn-black transition-colors">Reports</a>
+                    <a href="#features" class="vn-label text-vn-gray hover:text-vn-black transition-colors">Features</a>
+                    <div class="w-px h-6 bg-vn-border"></div>
                 </div>
             </div>
         </div>
@@ -227,18 +221,18 @@
         <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <!-- Portfolio Badge -->
-                <div class="inline-flex items-center px-4 py-2 bg-white border border-nyt-border mb-8">
+                <div class="inline-flex items-center px-4 py-2 bg-white border border-vn-border mb-8">
                     <div class="w-2 h-2 bg-bauhaus-red rounded-full mr-3"></div>
-                    <span class="nyt-label text-nyt-gray">Digital Portfolio Project</span>
+                    <span class="vn-label text-vn-gray">Digital Portfolio Project</span>
                 </div>
                 
-                <h1 class="nyt-display text-6xl md:text-7xl lg:text-8xl text-nyt-black mb-6">
+                <h1 class="vn-display text-6xl md:text-7xl lg:text-8xl text-vn-black mb-6">
                     WebInspect
                     <span class="block text-bauhaus-red">Studio</span>
                 </h1>
                 
                 <div class="max-w-4xl mx-auto">
-                    <p class="text-xl md:text-2xl text-nyt-lightgray mb-8 nyt-body font-light leading-relaxed">
+                    <p class="text-xl md:text-2xl text-vn-lightgray mb-8 vn-body font-light leading-relaxed">
                         A sophisticated web analysis platform combining modern design principles with powerful SEO insights. 
                         Built with precision, designed for professionals.
                     </p>
@@ -247,12 +241,12 @@
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
                     <button 
                         @click="scrollToAnalyzer()"
-                        class="bg-nyt-black text-white px-8 py-4 nyt-label hover:bg-nyt-gray transition-colors nyt-border-thick">
+                        class="bg-vn-black text-white px-8 py-4 vn-label hover:bg-vn-gray transition-colors vn-border-thick">
                         Begin Analysis
                     </button>
                     <button 
                         @click="showDemo = true"
-                        class="border-2 border-nyt-black text-nyt-black px-8 py-4 nyt-label hover:bg-nyt-black hover:text-white transition-colors">
+                        class="border-2 border-vn-black text-vn-black px-8 py-4 vn-label hover:bg-vn-black hover:text-white transition-colors">
                         View Case Study
                     </button>
                 </div>
@@ -261,34 +255,34 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-4xl mx-auto">
                     <div class="text-center">
                         <div class="w-12 h-12 bg-bauhaus-blue mx-auto mb-4"></div>
-                        <h3 class="nyt-headline text-lg text-nyt-black mb-2">Technical Excellence</h3>
-                        <p class="nyt-body text-sm text-nyt-lightgray">Advanced algorithms for comprehensive website analysis</p>
+                        <h3 class="vn-headline text-lg text-vn-black mb-2">Technical Excellence</h3>
+                        <p class="vn-body text-sm text-vn-lightgray">Advanced algorithms for comprehensive website analysis</p>
                     </div>
                     <div class="text-center">
                         <div class="w-12 h-12 bg-bauhaus-yellow mx-auto mb-4 transform rotate-45"></div>
-                        <h3 class="nyt-headline text-lg text-nyt-black mb-2">Design Innovation</h3>
-                        <p class="nyt-body text-sm text-nyt-lightgray">Bauhaus-inspired interface with NYT typography standards</p>
+                        <h3 class="vn-headline text-lg text-vn-black mb-2">Design Innovation</h3>
+                        <p class="vn-body text-sm text-vn-lightgray">Bauhaus-inspired interface with vn typography standards</p>
                     </div>
                     <div class="text-center">
                         <div class="w-12 h-12 bg-bauhaus-red rounded-full mx-auto mb-4"></div>
-                        <h3 class="nyt-headline text-lg text-nyt-black mb-2">Professional Impact</h3>
-                        <p class="nyt-body text-sm text-nyt-lightgray">Enterprise-grade reporting and actionable insights</p>
+                        <h3 class="vn-headline text-lg text-vn-black mb-2">Professional Impact</h3>
+                        <p class="vn-body text-sm text-vn-lightgray">Enterprise-grade reporting and actionable insights</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>    
     <!-- SEO Analyzer Section -->
-    <section id="analyzer" class="py-20 bg-white nyt-border-top">
+    <section id="analyzer" class="py-20 bg-white vn-border-top">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <div class="inline-block nyt-border-bottom pb-2 mb-6">
-                    <span class="nyt-label text-nyt-gray">Live Analysis Tool</span>
+                <div class="inline-block vn-border-bottom pb-2 mb-6">
+                    <span class="vn-label text-vn-gray">Live Analysis Tool</span>
                 </div>
-                <h2 class="nyt-headline text-4xl md:text-5xl text-nyt-black mb-6">
+                <h2 class="vn-headline text-4xl md:text-5xl text-vn-black mb-6">
                     Comprehensive Website Audit
                 </h2>
-                <p class="nyt-body text-xl text-nyt-lightgray max-w-3xl mx-auto">
+                <p class="vn-body text-xl text-vn-lightgray max-w-3xl mx-auto">
                     Enter any URL to receive a detailed technical analysis combining SEO best practices, 
                     performance metrics, and accessibility standards in a beautifully formatted report.
                 </p>
@@ -299,7 +293,7 @@
                 <div class="bg-white portfolio-card p-8 md:p-12">
                     <div class="flex flex-col lg:flex-row gap-6">
                         <div class="flex-1">
-                            <label class="block nyt-label text-nyt-gray mb-4">
+                            <label class="block vn-label text-vn-gray mb-4">
                                 Website URL
                             </label>
                             <input 
@@ -307,19 +301,19 @@
                                 x-model="url"
                                 @keyup.enter="analyzeWebsite()"
                                 placeholder="https://example.com"
-                                class="w-full px-6 py-4 border-2 border-nyt-border focus:border-nyt-black text-lg nyt-body transition-colors"
+                                class="w-full px-6 py-4 border-2 border-vn-border focus:border-vn-black text-lg vn-body transition-colors"
                                 :disabled="isLoading">
                         </div>
                         <div class="flex flex-col justify-end">
                             <button 
                                 @click="analyzeWebsite()"
                                 :disabled="isLoading || !url"
-                                class="bg-nyt-black text-white px-8 py-4 nyt-label hover:bg-nyt-gray disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                                class="bg-vn-black text-white px-8 py-4 vn-label hover:bg-vn-gray disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
                                 <span x-show="!isLoading">
                                     Run Analysis
                                 </span>
                                 <span x-show="isLoading" class="flex items-center justify-center">
-                                    <div class="nyt-loading mr-2"></div>
+                                    <div class="vn-loading mr-2"></div>
                                     Analyzing...
                                 </span>
                             </button>
@@ -327,9 +321,9 @@
                     </div>
                     
                     <!-- Technical Notes -->
-                    <div class="mt-8 p-6 bg-nyt-bg border border-nyt-border">
-                        <h4 class="nyt-headline text-lg text-nyt-black mb-3">Technical Specifications</h4>
-                        <div class="newspaper-column nyt-body text-sm text-nyt-lightgray">
+                    <div class="mt-8 p-6 bg-vn-bg border border-vn-border">
+                        <h4 class="vn-headline text-lg text-vn-black mb-3">Technical Specifications</h4>
+                        <div class="newspaper-column vn-body text-sm text-vn-lightgray">
                             <p class="mb-2">This analysis tool employs advanced web scraping techniques to examine HTML structure, meta tags, heading hierarchy, image optimization, and link architecture. The scoring algorithm weighs factors according to current SEO best practices and accessibility guidelines.</p>
                             <p>Results are processed through a sophisticated evaluation system that provides actionable insights for technical optimization, content improvement, and user experience enhancement.</p>
                         </div>
@@ -339,28 +333,28 @@
             <div x-show="isLoading" class="max-w-4xl mx-auto mb-16">
                 <div class="bg-white portfolio-card p-12 text-center">
                     <div class="mb-8">
-                        <div class="w-16 h-16 mx-auto mb-6 border-4 border-nyt-border border-l-nyt-black rounded-full animate-spin"></div>
+                        <div class="w-16 h-16 mx-auto mb-6 border-4 border-vn-border border-l-vn-black rounded-full animate-spin"></div>
                     </div>
-                    <h3 class="nyt-headline text-2xl text-nyt-black mb-4">Analysis in Progress</h3>
-                    <p class="nyt-body text-nyt-lightgray mb-8">Conducting comprehensive audit of website architecture and optimization</p>
+                    <h3 class="vn-headline text-2xl text-vn-black mb-4">Analysis in Progress</h3>
+                    <p class="vn-body text-vn-lightgray mb-8">Conducting comprehensive audit of website architecture and optimization</p>
                     
                     <!-- Progress Indicators -->
                     <div class="max-w-md mx-auto space-y-4">
-                        <div class="flex items-center justify-between py-2 border-b border-nyt-border" :class="loadingStep >= 1 ? 'text-nyt-black' : 'text-nyt-lightgray'">
-                            <span class="nyt-label text-xs">Website Loading</span>
-                            <div class="w-2 h-2 rounded-full" :class="loadingStep >= 1 ? 'bg-bauhaus-red' : 'bg-nyt-border'"></div>
+                        <div class="flex items-center justify-between py-2 border-b border-vn-border" :class="loadingStep >= 1 ? 'text-vn-black' : 'text-vn-lightgray'">
+                            <span class="vn-label text-xs">Website Loading</span>
+                            <div class="w-2 h-2 rounded-full" :class="loadingStep >= 1 ? 'bg-bauhaus-red' : 'bg-vn-border'"></div>
                         </div>
-                        <div class="flex items-center justify-between py-2 border-b border-nyt-border" :class="loadingStep >= 2 ? 'text-nyt-black' : 'text-nyt-lightgray'">
-                            <span class="nyt-label text-xs">HTML Structure Analysis</span>
-                            <div class="w-2 h-2 rounded-full" :class="loadingStep >= 2 ? 'bg-bauhaus-blue' : 'bg-nyt-border'"></div>
+                        <div class="flex items-center justify-between py-2 border-b border-vn-border" :class="loadingStep >= 2 ? 'text-vn-black' : 'text-vn-lightgray'">
+                            <span class="vn-label text-xs">HTML Structure Analysis</span>
+                            <div class="w-2 h-2 rounded-full" :class="loadingStep >= 2 ? 'bg-bauhaus-blue' : 'bg-vn-border'"></div>
                         </div>
-                        <div class="flex items-center justify-between py-2 border-b border-nyt-border" :class="loadingStep >= 3 ? 'text-nyt-black' : 'text-nyt-lightgray'">
-                            <span class="nyt-label text-xs">SEO Factor Evaluation</span>
-                            <div class="w-2 h-2 rounded-full" :class="loadingStep >= 3 ? 'bg-bauhaus-yellow' : 'bg-nyt-border'"></div>
+                        <div class="flex items-center justify-between py-2 border-b border-vn-border" :class="loadingStep >= 3 ? 'text-vn-black' : 'text-vn-lightgray'">
+                            <span class="vn-label text-xs">SEO Factor Evaluation</span>
+                            <div class="w-2 h-2 rounded-full" :class="loadingStep >= 3 ? 'bg-bauhaus-yellow' : 'bg-vn-border'"></div>
                         </div>
-                        <div class="flex items-center justify-between py-2" :class="loadingStep >= 4 ? 'text-nyt-black' : 'text-nyt-lightgray'">
-                            <span class="nyt-label text-xs">Report Generation</span>
-                            <div class="w-2 h-2 rounded-full" :class="loadingStep >= 4 ? 'bg-nyt-black' : 'bg-nyt-border'"></div>
+                        <div class="flex items-center justify-between py-2" :class="loadingStep >= 4 ? 'text-vn-black' : 'text-vn-lightgray'">
+                            <span class="vn-label text-xs">Report Generation</span>
+                            <div class="w-2 h-2 rounded-full" :class="loadingStep >= 4 ? 'bg-vn-black' : 'bg-vn-border'"></div>
                         </div>
                     </div>
                 </div>
@@ -368,14 +362,14 @@
             <div x-show="analysisData && !isLoading">
                 <!-- Overall Score Card -->
                 <div class="max-w-6xl mx-auto mb-16">
-                    <div class="bg-white portfolio-card p-12 nyt-border-top">
+                    <div class="bg-white portfolio-card p-12 vn-border-top">
                         <!-- Header -->
-                        <div class="text-center mb-12 pb-8 nyt-border-bottom">
+                        <div class="text-center mb-12 pb-8 vn-border-bottom">
                             <div class="inline-block mb-4">
-                                <span class="nyt-label text-nyt-gray">Analysis Report</span>
+                                <span class="vn-label text-vn-gray">Analysis Report</span>
                             </div>
-                            <h3 class="nyt-headline text-3xl md:text-4xl text-nyt-black mb-4">Website Performance Audit</h3>
-                            <p class="nyt-body text-nyt-lightgray text-lg" x-text="analysisData?.url"></p>
+                            <h3 class="vn-headline text-3xl md:text-4xl text-vn-black mb-4">Website Performance Audit</h3>
+                            <p class="vn-body text-vn-lightgray text-lg" x-text="analysisData?.url"></p>
                         </div>
                         
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -383,10 +377,10 @@
                             <div class="text-center lg:text-left">
                                 <div class="inline-block relative mb-8">
                                     <!-- Bauhaus-inspired score display -->
-                                    <div class="w-32 h-32 border-4 border-nyt-black flex items-center justify-center bg-white">
+                                    <div class="w-32 h-32 border-4 border-vn-black flex items-center justify-center bg-white">
                                         <div class="text-center">
-                                            <div class="nyt-display text-4xl text-nyt-black" x-text="analysisData?.total_score || 0"></div>
-                                            <div class="nyt-label text-xs text-nyt-gray">/ 10</div>
+                                            <div class="vn-display text-4xl text-vn-black" x-text="analysisData?.total_score || 0"></div>
+                                            <div class="vn-label text-xs text-vn-gray">/ 10</div>
                                         </div>
                                     </div>
                                     <!-- Geometric accent -->
@@ -395,54 +389,49 @@
                                 
                                 <div>
                                     <div class="mb-4">
-                                        <span class="nyt-display text-6xl" :class="getGradeColorClass(analysisData?.grade)" x-text="analysisData?.grade || 'N/A'"></span>
+                                        <span class="vn-display text-6xl" :class="getGradeColorClass(analysisData?.grade)" x-text="analysisData?.grade || 'N/A'"></span>
                                     </div>
-                                    <div class="nyt-label text-nyt-gray mb-2">Overall Grade</div>
-                                    <div class="nyt-body text-sm text-nyt-lightgray mb-6">
+                                    <div class="vn-label text-vn-gray mb-2">Overall Grade</div>
+                                    <div class="vn-body text-sm text-vn-lightgray mb-6">
                                         Analyzed: <span x-text="formatDate(analysisData?.analyzed_at)"></span>
                                     </div>
                                 </div>
                             </div>
                               <!-- Quick Actions -->
                             <div class="space-y-4">
-                                <h4 class="nyt-headline text-xl text-nyt-black mb-6">Export Options</h4>
+                                <h4 class="vn-headline text-xl text-vn-black mb-6">Export Options</h4>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <button 
                                         @click="exportToCSV()"
-                                        class="border-2 border-nyt-black text-nyt-black px-6 py-3 nyt-label hover:bg-nyt-black hover:text-white transition-colors">
+                                        class="border-2 border-vn-black text-vn-black px-6 py-3 vn-label hover:bg-vn-black hover:text-white transition-colors">
                                         CSV Data Export
                                     </button>
                                     <button 
                                         @click="printReport()"
-                                        class="border-2 border-nyt-gray text-nyt-gray px-6 py-3 nyt-label hover:bg-nyt-gray hover:text-white transition-colors">
+                                        class="border-2 border-vn-gray text-vn-gray px-6 py-3 vn-label hover:bg-vn-gray hover:text-white transition-colors">
                                         Print Report
                                     </button>
                                 </div>
                                 
                                 <!-- Analysis Summary -->
-                                <div class="mt-8 p-4 bg-nyt-bg border border-nyt-border">
-                                    <div class="nyt-label text-nyt-gray mb-2">Analysis Summary</div>
+                                <div class="mt-8 p-4 bg-vn-bg border border-vn-border">
+                                    <div class="vn-label text-vn-gray mb-2">Analysis Summary</div>
                                     <div class="grid grid-cols-2 gap-4 text-sm">
                                         <div>
-                                            <span class="nyt-body text-nyt-lightgray">Analysis Time:</span>
-                                            <span class="nyt-body font-medium" x-text="(analysisData?.analysis_time || 0) + 's'"></span>
+                                            <span class="vn-body text-vn-lightgray">Analysis Time:</span>
+                                            <span class="vn-body font-medium" x-text="(analysisData?.analysis_time || 0) + 's'"></span>
                                         </div>
                                         <div>
-                                            <span class="nyt-body text-nyt-lightgray">Domain:</span>
-                                            <span class="nyt-body font-medium" x-text="analysisData?.domain || 'N/A'"></span>
+                                            <span class="vn-body text-vn-lightgray">Domain:</span>
+                                            <span class="vn-body font-medium" x-text="analysisData?.domain || 'N/A'"></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                                     <button 
                                         @click="printReport()"
-                                        class="border-2 border-nyt-gray text-nyt-gray px-6 py-3 nyt-label hover:bg-nyt-gray hover:text-white transition-colors">
+                                        class="border-2 border-vn-gray text-vn-gray px-6 py-3 vn-label hover:bg-vn-gray hover:text-white transition-colors">
                                         Print Report
-                                    </button>
-                                    <button 
-                                        @click="exportToPDF()"
-                                        class="bg-bauhaus-red text-white px-6 py-3 nyt-label hover:bg-red-700 transition-colors">
-                                        PDF Report
                                     </button>
                                 </div>
                             </div>
@@ -456,8 +445,8 @@
                 </div>                <!-- Detailed Analysis Grid -->
                 <div class="max-w-6xl mx-auto mb-16">
                     <div class="mb-8 text-center">
-                        <h3 class="nyt-headline text-2xl text-nyt-black mb-2">Technical Analysis Breakdown</h3>
-                        <div class="w-16 h-px bg-nyt-black mx-auto"></div>
+                        <h3 class="vn-headline text-2xl text-vn-black mb-2">Technical Analysis Breakdown</h3>
+                        <div class="w-16 h-px bg-vn-black mx-auto"></div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -466,29 +455,29 @@
                             <div class="flex items-start justify-between mb-6">
                                 <div>
                                     <div class="w-4 h-4 bg-bauhaus-blue mb-3"></div>
-                                    <h4 class="nyt-headline text-lg text-nyt-black">Title Tag Analysis</h4>
+                                    <h4 class="vn-headline text-lg text-vn-black">Title Tag Analysis</h4>
                                 </div>
                                 <div class="text-right">
-                                    <div class="nyt-display text-2xl" :class="getScoreColor(analysisData?.title?.score)" x-text="analysisData?.title?.score || 0"></div>
-                                    <div class="nyt-label text-xs text-nyt-gray">Score</div>
+                                    <div class="vn-display text-2xl" :class="getScoreColor(analysisData?.title?.score)" x-text="analysisData?.title?.score || 0"></div>
+                                    <div class="vn-label text-xs text-vn-gray">Score</div>
                                 </div>
                             </div>
                             
                             <div class="space-y-4">
                                 <div>
-                                    <div class="nyt-label text-nyt-gray mb-2">Title Content</div>
-                                    <div class="nyt-body text-sm bg-nyt-bg p-3 border border-nyt-border" x-text="analysisData?.title?.title || 'None found'"></div>
+                                    <div class="vn-label text-vn-gray mb-2">Title Content</div>
+                                    <div class="vn-body text-sm bg-vn-bg p-3 border border-vn-border" x-text="analysisData?.title?.title || 'None found'"></div>
                                 </div>
                                 
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Character Length</span>
-                                    <span class="nyt-body text-sm font-medium" x-text="analysisData?.title?.length || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Character Length</span>
+                                    <span class="vn-body text-sm font-medium" x-text="analysisData?.title?.length || 0"></span>
                                 </div>
                                 
                                 <div x-show="analysisData?.title?.issues?.length > 0" class="mt-4">
-                                    <div class="nyt-label text-nyt-gray mb-2">Issues Identified</div>
+                                    <div class="vn-label text-vn-gray mb-2">Issues Identified</div>
                                     <template x-for="issue in analysisData?.title?.issues">
-                                        <div class="nyt-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
+                                        <div class="vn-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
                                     </template>
                                 </div>
                             </div>
@@ -499,29 +488,29 @@
                             <div class="flex items-start justify-between mb-6">
                                 <div>
                                     <div class="w-4 h-4 bg-bauhaus-yellow mb-3"></div>
-                                    <h4 class="nyt-headline text-lg text-nyt-black">Meta Description</h4>
+                                    <h4 class="vn-headline text-lg text-vn-black">Meta Description</h4>
                                 </div>
                                 <div class="text-right">
-                                    <div class="nyt-display text-2xl" :class="getScoreColor(analysisData?.meta_description?.score)" x-text="analysisData?.meta_description?.score || 0"></div>
-                                    <div class="nyt-label text-xs text-nyt-gray">Score</div>
+                                    <div class="vn-display text-2xl" :class="getScoreColor(analysisData?.meta_description?.score)" x-text="analysisData?.meta_description?.score || 0"></div>
+                                    <div class="vn-label text-xs text-vn-gray">Score</div>
                                 </div>
                             </div>
                             
                             <div class="space-y-4">
                                 <div>
-                                    <div class="nyt-label text-nyt-gray mb-2">Description Content</div>
-                                    <div class="nyt-body text-sm bg-nyt-bg p-3 border border-nyt-border" x-text="analysisData?.meta_description?.description || 'None found'"></div>
+                                    <div class="vn-label text-vn-gray mb-2">Description Content</div>
+                                    <div class="vn-body text-sm bg-vn-bg p-3 border border-vn-border" x-text="analysisData?.meta_description?.description || 'None found'"></div>
                                 </div>
                                 
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Character Length</span>
-                                    <span class="nyt-body text-sm font-medium" x-text="analysisData?.meta_description?.length || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Character Length</span>
+                                    <span class="vn-body text-sm font-medium" x-text="analysisData?.meta_description?.length || 0"></span>
                                 </div>
                                 
                                 <div x-show="analysisData?.meta_description?.issues?.length > 0" class="mt-4">
-                                    <div class="nyt-label text-nyt-gray mb-2">Issues Identified</div>
+                                    <div class="vn-label text-vn-gray mb-2">Issues Identified</div>
                                     <template x-for="issue in analysisData?.meta_description?.issues">
-                                        <div class="nyt-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
+                                        <div class="vn-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
                                     </template>
                                 </div>
                             </div>
@@ -532,26 +521,26 @@
                             <div class="flex items-start justify-between mb-6">
                                 <div>
                                     <div class="w-4 h-4 bg-bauhaus-red mb-3"></div>
-                                    <h4 class="nyt-headline text-lg text-nyt-black">Heading Structure</h4>
+                                    <h4 class="vn-headline text-lg text-vn-black">Heading Structure</h4>
                                 </div>
                                 <div class="text-right">
-                                    <div class="nyt-display text-2xl" :class="getScoreColor(analysisData?.headings?.score)" x-text="analysisData?.headings?.score || 0"></div>
-                                    <div class="nyt-label text-xs text-nyt-gray">Score</div>
+                                    <div class="vn-display text-2xl" :class="getScoreColor(analysisData?.headings?.score)" x-text="analysisData?.headings?.score || 0"></div>
+                                    <div class="vn-label text-xs text-vn-gray">Score</div>
                                 </div>
                             </div>
                             
                             <div class="space-y-3">
                                 <template x-for="(count, heading) in analysisData?.headings?.headings || {}">
-                                    <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                        <span class="nyt-label text-xs text-nyt-lightgray" x-text="heading.toUpperCase()"></span>
-                                        <span class="nyt-body text-sm font-medium" x-text="count.length"></span>
+                                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                        <span class="vn-label text-xs text-vn-lightgray" x-text="heading.toUpperCase()"></span>
+                                        <span class="vn-body text-sm font-medium" x-text="count.length"></span>
                                     </div>
                                 </template>
                                 
                                 <div x-show="analysisData?.headings?.issues?.length > 0" class="mt-4">
-                                    <div class="nyt-label text-nyt-gray mb-2">Issues Identified</div>
+                                    <div class="vn-label text-vn-gray mb-2">Issues Identified</div>
                                     <template x-for="issue in analysisData?.headings?.issues">
-                                        <div class="nyt-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
+                                        <div class="vn-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
                                     </template>
                                 </div>
                             </div>
@@ -561,33 +550,33 @@
                         <div class="bg-white portfolio-card p-8">
                             <div class="flex items-start justify-between mb-6">
                                 <div>
-                                    <div class="w-4 h-4 bg-nyt-black mb-3"></div>
-                                    <h4 class="nyt-headline text-lg text-nyt-black">Image Optimization</h4>
+                                    <div class="w-4 h-4 bg-vn-black mb-3"></div>
+                                    <h4 class="vn-headline text-lg text-vn-black">Image Optimization</h4>
                                 </div>
                                 <div class="text-right">
-                                    <div class="nyt-display text-2xl" :class="getScoreColor(analysisData?.images?.score)" x-text="analysisData?.images?.score || 0"></div>
-                                    <div class="nyt-label text-xs text-nyt-gray">Score</div>
+                                    <div class="vn-display text-2xl" :class="getScoreColor(analysisData?.images?.score)" x-text="analysisData?.images?.score || 0"></div>
+                                    <div class="vn-label text-xs text-vn-gray">Score</div>
                                 </div>
                             </div>
                             
                             <div class="space-y-3">
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Total Images</span>
-                                    <span class="nyt-body text-sm font-medium" x-text="analysisData?.images?.total_images || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Total Images</span>
+                                    <span class="vn-body text-sm font-medium" x-text="analysisData?.images?.total_images || 0"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Missing Alt Text</span>
-                                    <span class="nyt-body text-sm font-medium text-red-600" x-text="analysisData?.images?.missing_alt || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Missing Alt Text</span>
+                                    <span class="vn-body text-sm font-medium text-red-600" x-text="analysisData?.images?.missing_alt || 0"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Empty Alt Text</span>
-                                    <span class="nyt-body text-sm font-medium text-yellow-600" x-text="analysisData?.images?.empty_alt || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Empty Alt Text</span>
+                                    <span class="vn-body text-sm font-medium text-yellow-600" x-text="analysisData?.images?.empty_alt || 0"></span>
                                 </div>
                                 
                                 <div x-show="analysisData?.images?.issues?.length > 0" class="mt-4">
-                                    <div class="nyt-label text-nyt-gray mb-2">Issues Identified</div>
+                                    <div class="vn-label text-vn-gray mb-2">Issues Identified</div>
                                     <template x-for="issue in analysisData?.images?.issues">
-                                        <div class="nyt-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
+                                        <div class="vn-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
                                     </template>
                                 </div>
                             </div>
@@ -596,32 +585,32 @@
                             <div class="flex items-start justify-between mb-6">
                                 <div>
                                     <div class="w-4 h-4 bg-bauhaus-blue mb-3"></div>
-                                    <h4 class="nyt-headline text-lg text-nyt-black">Link Architecture</h4>
+                                    <h4 class="vn-headline text-lg text-vn-black">Link Architecture</h4>
                                 </div>
                                 <div class="text-right">
-                                    <div class="nyt-display text-2xl" :class="getScoreColor(analysisData?.links?.score)" x-text="analysisData?.links?.score || 0"></div>
-                                    <div class="nyt-label text-xs text-nyt-gray">Score</div>
+                                    <div class="vn-display text-2xl" :class="getScoreColor(analysisData?.links?.score)" x-text="analysisData?.links?.score || 0"></div>
+                                    <div class="vn-label text-xs text-vn-gray">Score</div>
                                 </div>
                             </div>
                             
                             <div class="space-y-3">
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Total Links</span>
-                                    <span class="nyt-body text-sm font-medium" x-text="analysisData?.links?.total_links || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Total Links</span>
+                                    <span class="vn-body text-sm font-medium" x-text="analysisData?.links?.total_links || 0"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Internal Links</span>
-                                    <span class="nyt-body text-sm font-medium text-green-600" x-text="analysisData?.links?.internal_links || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Internal Links</span>
+                                    <span class="vn-body text-sm font-medium text-green-600" x-text="analysisData?.links?.internal_links || 0"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">External Links</span>
-                                    <span class="nyt-body text-sm font-medium text-blue-600" x-text="analysisData?.links?.external_links || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">External Links</span>
+                                    <span class="vn-body text-sm font-medium text-blue-600" x-text="analysisData?.links?.external_links || 0"></span>
                                 </div>
                                 
                                 <div x-show="analysisData?.links?.issues?.length > 0" class="mt-4">
-                                    <div class="nyt-label text-nyt-gray mb-2">Issues Identified</div>
+                                    <div class="vn-label text-vn-gray mb-2">Issues Identified</div>
                                     <template x-for="issue in analysisData?.links?.issues">
-                                        <div class="nyt-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
+                                        <div class="vn-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
                                     </template>
                                 </div>
                             </div>
@@ -632,32 +621,32 @@
                             <div class="flex items-start justify-between mb-6">
                                 <div>
                                     <div class="w-4 h-4 bg-bauhaus-yellow mb-3"></div>
-                                    <h4 class="nyt-headline text-lg text-nyt-black">Performance Metrics</h4>
+                                    <h4 class="vn-headline text-lg text-vn-black">Performance Metrics</h4>
                                 </div>
                                 <div class="text-right">
-                                    <div class="nyt-display text-2xl" :class="getScoreColor(analysisData?.performance?.score)" x-text="analysisData?.performance?.score || 0"></div>
-                                    <div class="nyt-label text-xs text-nyt-gray">Score</div>
+                                    <div class="vn-display text-2xl" :class="getScoreColor(analysisData?.performance?.score)" x-text="analysisData?.performance?.score || 0"></div>
+                                    <div class="vn-label text-xs text-vn-gray">Score</div>
                                 </div>
                             </div>
                             
                             <div class="space-y-3">
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Page Size</span>
-                                    <span class="nyt-body text-sm font-medium" x-text="(analysisData?.performance?.page_size_kb || 0) + ' KB'"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Page Size</span>
+                                    <span class="vn-body text-sm font-medium" x-text="(analysisData?.performance?.page_size_kb || 0) + ' KB'"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Load Time</span>
-                                    <span class="nyt-body text-sm font-medium" x-text="(analysisData?.performance?.load_time_seconds || 0) + ' sec'"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Load Time</span>
+                                    <span class="vn-body text-sm font-medium" x-text="(analysisData?.performance?.load_time_seconds || 0) + ' sec'"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Compression</span>
-                                    <span class="nyt-body text-sm font-medium" x-text="analysisData?.performance?.compression || 'None'"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Compression</span>
+                                    <span class="vn-body text-sm font-medium" x-text="analysisData?.performance?.compression || 'None'"></span>
                                 </div>
                                 
                                 <div x-show="analysisData?.performance?.issues?.length > 0" class="mt-4">
-                                    <div class="nyt-label text-nyt-gray mb-2">Issues Identified</div>
+                                    <div class="vn-label text-vn-gray mb-2">Issues Identified</div>
                                     <template x-for="issue in analysisData?.performance?.issues">
-                                        <div class="nyt-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
+                                        <div class="vn-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
                                     </template>
                                 </div>
                             </div>
@@ -668,39 +657,39 @@
                             <div class="flex items-start justify-between mb-6">
                                 <div>
                                     <div class="w-4 h-4 bg-bauhaus-red mb-3"></div>
-                                    <h4 class="nyt-headline text-lg text-nyt-black">Structured Data</h4>
+                                    <h4 class="vn-headline text-lg text-vn-black">Structured Data</h4>
                                 </div>
                                 <div class="text-right">
-                                    <div class="nyt-display text-2xl" :class="getScoreColor(analysisData?.structured_data?.score)" x-text="analysisData?.structured_data?.score || 0"></div>
-                                    <div class="nyt-label text-xs text-nyt-gray">Score</div>
+                                    <div class="vn-display text-2xl" :class="getScoreColor(analysisData?.structured_data?.score)" x-text="analysisData?.structured_data?.score || 0"></div>
+                                    <div class="vn-label text-xs text-vn-gray">Score</div>
                                 </div>
                             </div>
                             
                             <div class="space-y-3">
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Valid JSON-LD</span>
-                                    <span class="nyt-body text-sm font-medium" x-text="analysisData?.structured_data?.valid_json_ld || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Valid JSON-LD</span>
+                                    <span class="vn-body text-sm font-medium" x-text="analysisData?.structured_data?.valid_json_ld || 0"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Open Graph Tags</span>
-                                    <span class="nyt-body text-sm font-medium" x-text="analysisData?.structured_data?.og_tags || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Open Graph Tags</span>
+                                    <span class="vn-body text-sm font-medium" x-text="analysisData?.structured_data?.og_tags || 0"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Twitter Cards</span>
-                                    <span class="nyt-body text-sm font-medium" x-text="analysisData?.structured_data?.twitter_tags || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Twitter Cards</span>
+                                    <span class="vn-body text-sm font-medium" x-text="analysisData?.structured_data?.twitter_tags || 0"></span>
                                 </div>
                                 
                                 <div x-show="analysisData?.structured_data?.schema_types?.length > 0" class="mt-4">
-                                    <div class="nyt-label text-nyt-gray mb-2">Schema Types</div>
+                                    <div class="vn-label text-vn-gray mb-2">Schema Types</div>
                                     <template x-for="type in analysisData?.structured_data?.schema_types">
-                                        <div class="nyt-body text-xs bg-green-50 text-green-800 p-2 border-l-4 border-bauhaus-blue mb-1" x-text="type"></div>
+                                        <div class="vn-body text-xs bg-green-50 text-green-800 p-2 border-l-4 border-bauhaus-blue mb-1" x-text="type"></div>
                                     </template>
                                 </div>
                                 
                                 <div x-show="analysisData?.structured_data?.issues?.length > 0" class="mt-4">
-                                    <div class="nyt-label text-nyt-gray mb-2">Issues Identified</div>
+                                    <div class="vn-label text-vn-gray mb-2">Issues Identified</div>
                                     <template x-for="issue in analysisData?.structured_data?.issues">
-                                        <div class="nyt-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
+                                        <div class="vn-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
                                     </template>
                                 </div>
                             </div>
@@ -711,32 +700,32 @@
                             <div class="flex items-start justify-between mb-6">
                                 <div>
                                     <div class="w-4 h-4 bg-bauhaus-blue mb-3"></div>
-                                    <h4 class="nyt-headline text-lg text-nyt-black">Mobile Optimization</h4>
+                                    <h4 class="vn-headline text-lg text-vn-black">Mobile Optimization</h4>
                                 </div>
                                 <div class="text-right">
-                                    <div class="nyt-display text-2xl" :class="getScoreColor(analysisData?.mobile_friendly?.score)" x-text="analysisData?.mobile_friendly?.score || 0"></div>
-                                    <div class="nyt-label text-xs text-nyt-gray">Score</div>
+                                    <div class="vn-display text-2xl" :class="getScoreColor(analysisData?.mobile_friendly?.score)" x-text="analysisData?.mobile_friendly?.score || 0"></div>
+                                    <div class="vn-label text-xs text-vn-gray">Score</div>
                                 </div>
                             </div>
                             
                             <div class="space-y-3">
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Viewport Meta Tag</span>
-                                    <span class="nyt-body text-sm font-medium" :class="analysisData?.mobile_friendly?.has_viewport ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.mobile_friendly?.has_viewport ? 'Present' : 'Missing'"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Viewport Meta Tag</span>
+                                    <span class="vn-body text-sm font-medium" :class="analysisData?.mobile_friendly?.has_viewport ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.mobile_friendly?.has_viewport ? 'Present' : 'Missing'"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Responsive Images</span>
-                                    <span class="nyt-body text-sm font-medium" x-text="analysisData?.mobile_friendly?.responsive_images || 0"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Responsive Images</span>
+                                    <span class="vn-body text-sm font-medium" x-text="analysisData?.mobile_friendly?.responsive_images || 0"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Mobile Optimized</span>
-                                    <span class="nyt-body text-sm font-medium" :class="analysisData?.mobile_friendly?.mobile_optimized ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.mobile_friendly?.mobile_optimized ? 'Yes' : 'No'"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Mobile Optimized</span>
+                                    <span class="vn-body text-sm font-medium" :class="analysisData?.mobile_friendly?.mobile_optimized ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.mobile_friendly?.mobile_optimized ? 'Yes' : 'No'"></span>
                                 </div>
                                 
                                 <div x-show="analysisData?.mobile_friendly?.issues?.length > 0" class="mt-4">
-                                    <div class="nyt-label text-nyt-gray mb-2">Issues Identified</div>
+                                    <div class="vn-label text-vn-gray mb-2">Issues Identified</div>
                                     <template x-for="issue in analysisData?.mobile_friendly?.issues">
-                                        <div class="nyt-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
+                                        <div class="vn-body text-xs bg-red-50 text-red-800 p-2 border-l-4 border-bauhaus-red mb-1" x-text="issue"></div>
                                     </template>
                                 </div>
                             </div>
@@ -746,36 +735,36 @@
                         <div class="bg-white portfolio-card p-8">
                             <div class="flex items-start justify-between mb-6">
                                 <div>
-                                    <div class="w-4 h-4 bg-nyt-black mb-3"></div>
-                                    <h4 class="nyt-headline text-lg text-nyt-black">SEO Fundamentals</h4>
+                                    <div class="w-4 h-4 bg-vn-black mb-3"></div>
+                                    <h4 class="vn-headline text-lg text-vn-black">SEO Fundamentals</h4>
                                 </div>
                                 <div class="text-right">
-                                    <div class="nyt-display text-2xl" :class="getScoreColor(analysisData?.seo_fundamentals?.score)" x-text="analysisData?.seo_fundamentals?.score || 0"></div>
-                                    <div class="nyt-label text-xs text-nyt-gray">Score</div>
+                                    <div class="vn-display text-2xl" :class="getScoreColor(analysisData?.seo_fundamentals?.score)" x-text="analysisData?.seo_fundamentals?.score || 0"></div>
+                                    <div class="vn-label text-xs text-vn-gray">Score</div>
                                 </div>
                             </div>
                             
                             <div class="space-y-3">
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Robots.txt</span>
-                                    <span class="nyt-body text-sm font-medium" :class="analysisData?.seo_fundamentals?.checks?.robots_txt?.exists ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.seo_fundamentals?.checks?.robots_txt?.exists ? 'Found' : 'Missing'"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Robots.txt</span>
+                                    <span class="vn-body text-sm font-medium" :class="analysisData?.seo_fundamentals?.checks?.robots_txt?.exists ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.seo_fundamentals?.checks?.robots_txt?.exists ? 'Found' : 'Missing'"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Sitemap</span>
-                                    <span class="nyt-body text-sm font-medium" :class="analysisData?.seo_fundamentals?.checks?.sitemap?.exists ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.seo_fundamentals?.checks?.sitemap?.exists ? 'Found' : 'Missing'"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Sitemap</span>
+                                    <span class="vn-body text-sm font-medium" :class="analysisData?.seo_fundamentals?.checks?.sitemap?.exists ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.seo_fundamentals?.checks?.sitemap?.exists ? 'Found' : 'Missing'"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Canonical URL</span>
-                                    <span class="nyt-body text-sm font-medium" :class="analysisData?.seo_fundamentals?.checks?.canonical?.exists ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.seo_fundamentals?.checks?.canonical?.exists ? 'Present' : 'Missing'"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Canonical URL</span>
+                                    <span class="vn-body text-sm font-medium" :class="analysisData?.seo_fundamentals?.checks?.canonical?.exists ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.seo_fundamentals?.checks?.canonical?.exists ? 'Present' : 'Missing'"></span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-nyt-border">
-                                    <span class="nyt-body text-sm text-nyt-lightgray">Favicon</span>
-                                    <span class="nyt-body text-sm font-medium" :class="analysisData?.seo_fundamentals?.checks?.favicon?.exists ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.seo_fundamentals?.checks?.favicon?.exists ? 'Present' : 'Missing'"></span>
+                                <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                                    <span class="vn-body text-sm text-vn-lightgray">Favicon</span>
+                                    <span class="vn-body text-sm font-medium" :class="analysisData?.seo_fundamentals?.checks?.favicon?.exists ? 'text-green-600' : 'text-red-600'" x-text="analysisData?.seo_fundamentals?.checks?.favicon?.exists ? 'Present' : 'Missing'"></span>
                                 </div>
                                 
-                                <div class="mt-4 p-3 bg-nyt-bg border border-nyt-border">
-                                    <div class="nyt-label text-nyt-gray mb-1">Checks Passed</div>
-                                    <div class="nyt-body text-sm">
+                                <div class="mt-4 p-3 bg-vn-bg border border-vn-border">
+                                    <div class="vn-label text-vn-gray mb-1">Checks Passed</div>
+                                    <div class="vn-body text-sm">
                                         <span x-text="analysisData?.seo_fundamentals?.total_passed || 0"></span> / 
                                         <span>5</span> fundamental checks
                                     </div>
@@ -787,17 +776,17 @@
 
                 <!-- Insights Section -->
                 <div class="max-w-6xl mx-auto mb-16">
-                    <div class="bg-white portfolio-card p-12 nyt-border-top">
+                    <div class="bg-white portfolio-card p-12 vn-border-top">
                         <div class="text-center mb-12">
-                            <h3 class="nyt-headline text-2xl text-nyt-black mb-4">Optimization Insights</h3>
-                            <div class="w-16 h-px bg-nyt-black mx-auto mb-6"></div>
+                            <h3 class="vn-headline text-2xl text-vn-black mb-4">Optimization Insights</h3>
+                            <div class="w-16 h-px bg-vn-black mx-auto mb-6"></div>
                         </div>
                         
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                             <div>
                                 <div class="flex items-center mb-6">
                                     <div class="w-3 h-3 bg-bauhaus-red mr-4"></div>
-                                    <h4 class="nyt-headline text-xl text-nyt-black">Critical Issues</h4>
+                                    <h4 class="vn-headline text-xl text-vn-black">Critical Issues</h4>
                                 </div>
                                 <div class="space-y-3" x-html="getCriticalIssues()"></div>
                             </div>
@@ -805,7 +794,7 @@
                             <div>
                                 <div class="flex items-center mb-6">
                                     <div class="w-3 h-3 bg-bauhaus-blue mr-4"></div>
-                                    <h4 class="nyt-headline text-xl text-nyt-black">Improvement Opportunities</h4>
+                                    <h4 class="vn-headline text-xl text-vn-black">Improvement Opportunities</h4>
                                 </div>
                                 <div class="space-y-3" x-html="getImprovementTips()"></div>
                             </div>
@@ -817,19 +806,19 @@
                 <div class="max-w-6xl mx-auto">
                     <div class="bg-white portfolio-card p-12">
                         <div class="text-center mb-12">
-                            <h3 class="nyt-headline text-2xl text-nyt-black mb-4">Performance Analytics</h3>
-                            <div class="w-16 h-px bg-nyt-black mx-auto mb-6"></div>
-                            <p class="nyt-body text-nyt-lightgray">Visual representation of website optimization metrics and scoring distribution</p>
+                            <h3 class="vn-headline text-2xl text-vn-black mb-4">Performance Analytics</h3>
+                            <div class="w-16 h-px bg-vn-black mx-auto mb-6"></div>
+                            <p class="vn-body text-vn-lightgray">Visual representation of website optimization metrics and scoring distribution</p>
                         </div>
                         
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                             <div>
-                                <h4 class="nyt-headline text-lg text-nyt-black mb-6 text-center">SEO Factor Distribution</h4>
+                                <h4 class="vn-headline text-lg text-vn-black mb-6 text-center">SEO Factor Distribution</h4>
                                 <canvas id="scoreChart" class="w-full h-64"></canvas>
                             </div>
                             
                             <div>
-                                <h4 class="nyt-headline text-lg text-nyt-black mb-6 text-center">Technical Metrics</h4>
+                                <h4 class="vn-headline text-lg text-vn-black mb-6 text-center">Technical Metrics</h4>
                                 <canvas id="performanceChart" class="w-full h-64"></canvas>
                             </div>
                         </div>
@@ -841,27 +830,27 @@
 
                 <!-- Summary Section -->
                 <div class="max-w-6xl mx-auto mb-16">
-                    <div class="bg-white portfolio-card p-12 nyt-border-top">
+                    <div class="bg-white portfolio-card p-12 vn-border-top">
                         <div class="text-center mb-8">
-                            <h3 class="nyt-headline text-2xl text-nyt-black mb-4">Analysis Summary</h3>
-                            <div class="w-16 h-px bg-nyt-black mx-auto"></div>
+                            <h3 class="vn-headline text-2xl text-vn-black mb-4">Analysis Summary</h3>
+                            <div class="w-16 h-px bg-vn-black mx-auto"></div>
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                             <div class="text-center">
-                                <div class="nyt-display text-4xl text-bauhaus-blue mb-2" x-text="analysisData?.total_score || 0"></div>
-                                <div class="nyt-label text-nyt-gray">Overall Score</div>
-                                <div class="nyt-body text-lg text-nyt-black mt-1" x-text="analysisData?.grade || '-'"></div>
+                                <div class="vn-display text-4xl text-bauhaus-blue mb-2" x-text="analysisData?.total_score || 0"></div>
+                                <div class="vn-label text-vn-gray">Overall Score</div>
+                                <div class="vn-body text-lg text-vn-black mt-1" x-text="analysisData?.grade || '-'"></div>
                             </div>
                             
                             <div class="text-center">
-                                <div class="nyt-display text-4xl text-bauhaus-red mb-2" x-text="analysisData?.domain || '-'"></div>
-                                <div class="nyt-label text-nyt-gray">Domain Analyzed</div>
+                                <div class="vn-display text-4xl text-bauhaus-red mb-2" x-text="analysisData?.domain || '-'"></div>
+                                <div class="vn-label text-vn-gray">Domain Analyzed</div>
                             </div>
                             
                             <div class="text-center">
-                                <div class="nyt-display text-4xl text-bauhaus-yellow mb-2" x-text="analysisData?.analysis_time || 0"></div>
-                                <div class="nyt-label text-nyt-gray">Analysis Time (seconds)</div>
+                                <div class="vn-display text-4xl text-bauhaus-yellow mb-2" x-text="analysisData?.analysis_time || 0"></div>
+                                <div class="vn-label text-vn-gray">Analysis Time (seconds)</div>
                             </div>
                         </div>
                     </div>
@@ -869,17 +858,17 @@
 
                 <!-- Insights Section -->
                 <div class="max-w-6xl mx-auto mb-16">
-                    <div class="bg-white portfolio-card p-12 nyt-border-top">
+                    <div class="bg-white portfolio-card p-12 vn-border-top">
                         <div class="text-center mb-12">
-                            <h3 class="nyt-headline text-2xl text-nyt-black mb-4">Optimization Insights</h3>
-                            <div class="w-16 h-px bg-nyt-black mx-auto mb-6"></div>
+                            <h3 class="vn-headline text-2xl text-vn-black mb-4">Optimization Insights</h3>
+                            <div class="w-16 h-px bg-vn-black mx-auto mb-6"></div>
                         </div>
                         
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                             <div>
                                 <div class="flex items-center mb-6">
                                     <div class="w-3 h-3 bg-bauhaus-red mr-4"></div>
-                                    <h4 class="nyt-headline text-xl text-nyt-black">Critical Issues</h4>
+                                    <h4 class="vn-headline text-xl text-vn-black">Critical Issues</h4>
                                 </div>
                                 <div class="space-y-3" x-html="getCriticalIssues()"></div>
                             </div>
@@ -887,7 +876,7 @@
                             <div>
                                 <div class="flex items-center mb-6">
                                     <div class="w-3 h-3 bg-bauhaus-blue mr-4"></div>
-                                    <h4 class="nyt-headline text-xl text-nyt-black">Improvement Opportunities</h4>
+                                    <h4 class="vn-headline text-xl text-vn-black">Improvement Opportunities</h4>
                                 </div>
                                 <div class="space-y-3" x-html="getImprovementTips()"></div>
                             </div>
@@ -900,17 +889,17 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-20 bg-nyt-black text-white">
+    <section id="features" class="py-20 bg-vn-black text-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <div class="inline-block mb-6">
-                    <span class="nyt-label text-white opacity-60">Portfolio Showcase</span>
+                    <span class="vn-label text-white opacity-60">Portfolio Showcase</span>
                 </div>
-                <h2 class="nyt-headline text-4xl md:text-5xl text-white mb-8">
+                <h2 class="vn-headline text-4xl md:text-5xl text-white mb-8">
                     Technical Excellence
                     <span class="block text-bauhaus-red">& Design Innovation</span>
                 </h2>
-                <p class="nyt-body text-xl text-white opacity-80 max-w-3xl mx-auto">
+                <p class="vn-body text-xl text-white opacity-80 max-w-3xl mx-auto">
                     This project demonstrates advanced web development skills, modern design principles, 
                     and professional-grade user experience design.
                 </p>
@@ -921,109 +910,109 @@
                     <div class="w-16 h-16 bg-white mx-auto mb-6 flex items-center justify-center">
                         <div class="w-8 h-8 bg-bauhaus-blue"></div>
                     </div>
-                    <h3 class="nyt-headline text-xl text-white mb-3">Advanced Analytics</h3>
-                    <p class="nyt-body text-white opacity-70">Comprehensive website auditing with real-time data processing and intelligent scoring algorithms</p>
+                    <h3 class="vn-headline text-xl text-white mb-3">Advanced Analytics</h3>
+                    <p class="vn-body text-white opacity-70">Comprehensive website auditing with real-time data processing and intelligent scoring algorithms</p>
                 </div>
 
                 <div class="text-center">
                     <div class="w-16 h-16 bg-white mx-auto mb-6 flex items-center justify-center">
                         <div class="w-8 h-8 bg-bauhaus-yellow transform rotate-45"></div>
                     </div>
-                    <h3 class="nyt-headline text-xl text-white mb-3">Design Systems</h3>
-                    <p class="nyt-body text-white opacity-70">Professional typography standards and Bauhaus-inspired geometric interface elements</p>
+                    <h3 class="vn-headline text-xl text-white mb-3">Design Systems</h3>
+                    <p class="vn-body text-white opacity-70">Professional typography standards and Bauhaus-inspired geometric interface elements</p>
                 </div>
 
                 <div class="text-center">
                     <div class="w-16 h-16 bg-white mx-auto mb-6 flex items-center justify-center">
                         <div class="w-8 h-8 bg-bauhaus-red rounded-full"></div>
                     </div>
-                    <h3 class="nyt-headline text-xl text-white mb-3">Enterprise Features</h3>
-                    <p class="nyt-body text-white opacity-70">Export capabilities, data visualization, and professional reporting functionality</p>
+                    <h3 class="vn-headline text-xl text-white mb-3">Enterprise Features</h3>
+                    <p class="vn-body text-white opacity-70">Export capabilities, data visualization, and professional reporting functionality</p>
                 </div>
             </div>
 
             <!-- Technical Stack -->
             <div class="mt-20 pt-16 border-t border-white border-opacity-20">
                 <div class="text-center mb-12">
-                    <h3 class="nyt-headline text-2xl text-white mb-4">Technical Implementation</h3>
+                    <h3 class="vn-headline text-2xl text-white mb-4">Technical Implementation</h3>
                     <div class="w-16 h-px bg-white mx-auto opacity-40"></div>
                 </div>
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                     <div>
-                        <div class="nyt-label text-white opacity-60 mb-2">Frontend</div>
-                        <div class="nyt-body text-white">Alpine.js, Tailwind CSS</div>
+                        <div class="vn-label text-white opacity-60 mb-2">Frontend</div>
+                        <div class="vn-body text-white">Alpine.js, Tailwind CSS</div>
                     </div>
                     <div>
-                        <div class="nyt-label text-white opacity-60 mb-2">Backend</div>
-                        <div class="nyt-body text-white">Python Flask</div>
+                        <div class="vn-label text-white opacity-60 mb-2">Backend</div>
+                        <div class="vn-body text-white">Python Flask</div>
                     </div>
                     <div>
-                        <div class="nyt-label text-white opacity-60 mb-2">Design</div>
-                        <div class="nyt-body text-white">Typography, Bauhaus</div>
+                        <div class="vn-label text-white opacity-60 mb-2">Design</div>
+                        <div class="vn-body text-white">Typography, Bauhaus</div>
                     </div>
                     <div>
-                        <div class="nyt-label text-white opacity-60 mb-2">Features</div>
-                        <div class="nyt-body text-white">SEO Analysis, Charts</div>
+                        <div class="vn-label text-white opacity-60 mb-2">Features</div>
+                        <div class="vn-body text-white">SEO Analysis, Charts</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>    <!-- Footer -->
-    <footer class="bg-white py-16 border-t-4 border-nyt-black">
+    <footer class="bg-white py-16 border-t-4 border-vn-black">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                 <div>
                     <div class="flex items-center mb-6">
                         <div class="w-6 h-6 bauhaus-square mr-3 opacity-80"></div>
-                        <span class="nyt-headline text-xl text-nyt-black">WebInspect Studio</span>
+                        <span class="vn-headline text-xl text-vn-black">WebInspect Studio</span>
                     </div>
-                    <p class="nyt-body text-nyt-lightgray leading-relaxed">
+                    <p class="vn-body text-vn-lightgray leading-relaxed">
                         A sophisticated web analysis platform showcasing modern design principles, 
                         advanced technical implementation, and professional user experience design.
                     </p>
                 </div>
                 
                 <div>
-                    <h4 class="nyt-headline text-lg text-nyt-black mb-4">Project Details</h4>
+                    <h4 class="vn-headline text-lg text-vn-black mb-4">Project Details</h4>
                     <div class="space-y-3">
                         <div class="flex items-center">
                             <div class="w-2 h-2 bg-bauhaus-red mr-3"></div>
-                            <span class="nyt-body text-sm text-nyt-lightgray">Full-Stack Development</span>
+                            <span class="vn-body text-sm text-vn-lightgray">Full-Stack Development</span>
                         </div>
                         <div class="flex items-center">
                             <div class="w-2 h-2 bg-bauhaus-blue mr-3"></div>
-                            <span class="nyt-body text-sm text-nyt-lightgray">Design System Implementation</span>
+                            <span class="vn-body text-sm text-vn-lightgray">Design System Implementation</span>
                         </div>
                         <div class="flex items-center">
                             <div class="w-2 h-2 bg-bauhaus-yellow mr-3"></div>
-                            <span class="nyt-body text-sm text-nyt-lightgray">Data Visualization</span>
+                            <span class="vn-body text-sm text-vn-lightgray">Data Visualization</span>
                         </div>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 class="nyt-headline text-lg text-nyt-black mb-4">Technologies</h4>
+                    <h4 class="vn-headline text-lg text-vn-black mb-4">Technologies</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-nyt-bg border border-nyt-border nyt-label text-xs text-nyt-gray">Python</span>
-                        <span class="px-3 py-1 bg-nyt-bg border border-nyt-border nyt-label text-xs text-nyt-gray">Flask</span>
-                        <span class="px-3 py-1 bg-nyt-bg border border-nyt-border nyt-label text-xs text-nyt-gray">Alpine.js</span>
-                        <span class="px-3 py-1 bg-nyt-bg border border-nyt-border nyt-label text-xs text-nyt-gray">Tailwind</span>
-                        <span class="px-3 py-1 bg-nyt-bg border border-nyt-border nyt-label text-xs text-nyt-gray">Chart.js</span>
+                        <span class="px-3 py-1 bg-vn-bg border border-vn-border vn-label text-xs text-vn-gray">Python</span>
+                        <span class="px-3 py-1 bg-vn-bg border border-vn-border vn-label text-xs text-vn-gray">Flask</span>
+                        <span class="px-3 py-1 bg-vn-bg border border-vn-border vn-label text-xs text-vn-gray">Alpine.js</span>
+                        <span class="px-3 py-1 bg-vn-bg border border-vn-border vn-label text-xs text-vn-gray">Tailwind</span>
+                        <span class="px-3 py-1 bg-vn-bg border border-vn-border vn-label text-xs text-vn-gray">Chart.js</span>
                     </div>
                 </div>
             </div>
             
-            <div class="pt-8 border-t border-nyt-border text-center">
+            <div class="pt-8 border-t border-vn-border text-center">
                 <div class="flex items-center justify-center mb-4">
-                    <div class="w-8 h-px bg-nyt-lightgray mr-4"></div>
-                    <span class="nyt-label text-nyt-lightgray">Portfolio Project</span>
-                    <div class="w-8 h-px bg-nyt-lightgray ml-4"></div>
+                    <div class="w-8 h-px bg-vn-lightgray mr-4"></div>
+                    <span class="vn-label text-vn-lightgray">Portfolio Project</span>
+                    <div class="w-8 h-px bg-vn-lightgray ml-4"></div>
                 </div>
-                <p class="nyt-body text-sm text-nyt-lightgray">
+                <p class="vn-body text-sm text-vn-lightgray">
                     Designed & developed as a demonstration of technical expertise and design sensibility
                 </p>
-                <p class="nyt-body text-xs text-nyt-lightgray mt-2">
+                <p class="vn-body text-xs text-vn-lightgray mt-2">
                     &copy; 2025 - Showcasing advanced web development capabilities
                 </p>
             </div>
@@ -1066,7 +1055,7 @@
                     try {
                         new URL(normalizedUrl);
                     } catch (e) {
-                        this.showNotification('Érvénytelen URL formátum!', 'error');
+                        this.showNotification('Érvévnelen URL formátum!', 'error');
                         return;
                     }
 
@@ -1214,7 +1203,7 @@
                     });
                     
                     return issues.slice(0, 5).map(issue => 
-                        `<div class="nyt-body text-sm text-red-700 flex items-center"><div class="w-1 h-1 bg-bauhaus-red mr-3 mt-2"></div>${issue}</div>`
+                        `<div class="vn-body text-sm text-red-700 flex items-center"><div class="w-1 h-1 bg-bauhaus-red mr-3 mt-2"></div>${issue}</div>`
                     ).join('');
                 },
 
@@ -1231,7 +1220,7 @@
                     ];
                     
                     return tips.slice(0, 5).map(tip => 
-                        `<div class="nyt-body text-sm text-blue-700 flex items-center"><div class="w-1 h-1 bg-bauhaus-blue mr-3 mt-2"></div>${tip}</div>`
+                        `<div class="vn-body text-sm text-blue-700 flex items-center"><div class="w-1 h-1 bg-bauhaus-blue mr-3 mt-2"></div>${tip}</div>`
                     ).join('');
                 },                async exportToCSV() {
                     try {
@@ -1252,17 +1241,17 @@
                     window.print();
                 },                showNotification(message, type = 'info') {
                     const notification = document.createElement('div');
-                    notification.className = 'fixed top-4 right-4 z-50 px-6 py-4 border-2 shadow-lg font-medium transform transition-all duration-300 translate-x-full nyt-body';
+                    notification.className = 'fixed top-4 right-4 z-50 px-6 py-4 border-2 shadow-lg font-medium transform transition-all duration-300 translate-x-full vn-body';
                     
                     if (type === 'success') {
-                        notification.classList.add('bg-white', 'border-bauhaus-blue', 'text-nyt-black');
+                        notification.classList.add('bg-white', 'border-bauhaus-blue', 'text-vn-black');
                         notification.innerHTML = `<div class="flex items-center"><div class="w-2 h-2 bg-bauhaus-blue mr-3"></div>${message}</div>`;
                     } else if (type === 'error') {
-                        notification.classList.add('bg-white', 'border-bauhaus-red', 'text-nyt-black');
+                        notification.classList.add('bg-white', 'border-bauhaus-red', 'text-vn-black');
                         notification.innerHTML = `<div class="flex items-center"><div class="w-2 h-2 bg-bauhaus-red mr-3"></div>${message}</div>`;
                     } else {
-                        notification.classList.add('bg-white', 'border-nyt-black', 'text-nyt-black');
-                        notification.innerHTML = `<div class="flex items-center"><div class="w-2 h-2 bg-nyt-black mr-3"></div>${message}</div>`;
+                        notification.classList.add('bg-white', 'border-vn-black', 'text-vn-black');
+                        notification.innerHTML = `<div class="flex items-center"><div class="w-2 h-2 bg-vn-black mr-3"></div>${message}</div>`;
                     }
                     
                     document.body.appendChild(notification);
