@@ -684,7 +684,14 @@ class AdvancedSEOAnalyzer:
             'structured_data': self.analyze_structured_data(),
             'performance': self.analyze_performance(),
             'mobile_friendly': self.analyze_mobile_friendly(),
-            'seo_fundamentals': self.analyze_seo_fundamentals()
+            'seo_fundamentals': self.analyze_seo_fundamentals(),
+            'content_quality': self.analyze_content_quality(),
+            'technical_seo': self.analyze_technical_seo(),
+            'social_media_optimization': self.analyze_social_media_optimization(),
+            'accessibility_seo': self.analyze_accessibility_seo(),
+            'core_web_vitals': self.analyze_core_web_vitals(),
+            'local_seo': self.analyze_local_seo(),
+            'e_commerce_seo': self.analyze_e_commerce_seo()
         }
         
         # Összpontszám számítása súlyozott átlaggal
@@ -697,8 +704,14 @@ class AdvancedSEOAnalyzer:
             'structured_data': 0.7,
             'performance': 1.3,
             'mobile_friendly': 1.1,
-            'seo_fundamentals': 0.9
-        }
+            'seo_fundamentals': 0.9,
+            'content_quality': 1.0,
+            'technical_seo': 0.9,
+            'social_media_optimization': 0.8,
+            'accessibility_seo': 0.7,
+            'core_web_vitals': 1.2,
+            'local_seo': 0.9,
+            'e_commerce_seo': 0.8        }
         
         total_weighted_score = 0
         total_weight = 0
@@ -712,6 +725,10 @@ class AdvancedSEOAnalyzer:
         analysis['total_score'] = round(final_score, 1)
         analysis['grade'] = self.get_grade(analysis['total_score'])
         analysis['analysis_time'] = round(time.time() - self.start_time, 2) if self.start_time else 0
+        
+        # AI-alapú javaslatok és fejlesztési potenciál
+        analysis['seo_recommendations'] = self.generate_seo_recommendations(analysis)
+        analysis['improvement_potential'] = self.calculate_seo_improvement_potential(analysis)
         
         return analysis
     
@@ -737,6 +754,556 @@ class AdvancedSEOAnalyzer:
             return 'D'
         else:
             return 'F'
+    
+    def analyze_content_quality(self):
+        """Tartalom minőség és SEO relevancia elemzése"""
+        if self.soup is None:
+            return {'score': 0, 'issues': ['Nem sikerült betölteni az oldalt']}
+            
+        score = 10
+        issues = []
+        recommendations = []
+        
+        # Szöveg tartalom kinyerése
+        text_content = self.soup.get_text(separator=' ', strip=True)
+        words = text_content.split()
+        word_count = len(words)
+        
+        # Szó szám ellenőrzés
+        if word_count < 300:
+            issues.append(f'Kevés szöveges tartalom: {word_count} szó')
+            recommendations.append('Adj hozzá legalább 300 szót az oldalhoz')
+            score -= 3
+        elif word_count < 150:
+            issues.append(f'Nagyon kevés tartalom: {word_count} szó')
+            recommendations.append('Bővítsd jelentősen a tartalom mennyiségét')
+            score -= 5
+            
+        # Bekezdések elemzése
+        paragraphs = self.soup.find_all('p')
+        paragraph_count = len([p for p in paragraphs if p.get_text().strip()])
+        
+        if paragraph_count < 3:
+            issues.append(f'Kevés bekezdés: {paragraph_count}')
+            recommendations.append('Strukturáld a tartalmat több bekezdésre')
+            score -= 2
+            
+        # Kulcsszó sűrűség elemzés (egyszerű)
+        if word_count > 0:
+            # A 3 leggyakoribb szó (kivéve stop words)
+            stop_words = {'a', 'az', 'és', 'de', 'hogy', 'ez', 'is', 'ki', 'be', 'el', 'fel', 'le', 'meg', 'át'}
+            word_freq = {}
+            for word in words:
+                clean_word = word.lower().strip('.,!?;:()[]{}"\'-')
+                if len(clean_word) > 3 and clean_word not in stop_words:
+                    word_freq[clean_word] = word_freq.get(clean_word, 0) + 1
+                    
+            top_words = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)[:5]
+            
+            # Olvashatóság (átlagos mondat hossz)
+            sentences = re.split(r'[.!?]+', text_content)
+            avg_sentence_length = word_count / max(len(sentences), 1)
+            
+            if avg_sentence_length > 25:
+                issues.append(f'Hosszú mondatok (átlag: {avg_sentence_length:.1f} szó)')
+                recommendations.append('Használj rövidebb mondatokat az olvashatóságért')
+                score -= 1
+                
+        return {
+            'score': max(0, score),
+            'word_count': word_count,
+            'paragraph_count': paragraph_count,
+            'avg_sentence_length': avg_sentence_length if 'avg_sentence_length' in locals() else 0,
+            'top_keywords': top_words[:3] if 'top_words' in locals() else [],
+            'issues': issues,
+            'recommendations': recommendations
+        }
+
+    def analyze_technical_seo(self):
+        """Technikai SEO elemzés"""
+        if self.soup is None or self.response is None:
+            return {'score': 0, 'issues': ['Nem sikerült betölteni az oldalt']}
+            
+        score = 10
+        issues = []
+        recommendations = []
+        checks = {}
+        
+        # HTTPS ellenőrzés
+        is_https = self.url.startswith('https://')
+        checks['https'] = is_https
+        if not is_https:
+            issues.append('HTTP protokoll HTTPS helyett')
+            recommendations.append('Válts HTTPS-re a biztonság és SEO előnyök miatt')
+            score -= 3
+            
+        # URL struktúra elemzés
+        parsed_url = urllib.parse.urlparse(self.url)
+        url_path = parsed_url.path
+        
+        # URL hossz
+        if len(self.url) > 100:
+            issues.append(f'Hosszú URL: {len(self.url)} karakter')
+            recommendations.append('Használj rövidebb, leíró URL-eket')
+            score -= 1
+            
+        # URL speciális karakterek
+        if any(char in url_path for char in ['_', '%', '&', '=']):
+            issues.append('URL tartalmaz SEO-barátalan karaktereket')
+            recommendations.append('Használj kötőjelet és csak alfanumerikus karaktereket')
+            score -= 1
+            
+        # Breadcrumb ellenőrzés
+        breadcrumb = self.soup.find('nav', {'aria-label': re.compile(r'breadcrumb', re.I)}) or \
+                    self.soup.find(class_=re.compile(r'breadcrumb', re.I))
+        checks['breadcrumb'] = bool(breadcrumb)
+        if not breadcrumb:
+            recommendations.append('Adj hozzá breadcrumb navigációt')
+            
+        # Internal linking depth
+        internal_links = []
+        for link in self.soup.find_all('a', href=True):
+            href = link['href']
+            if href.startswith('/') or self.domain in href:
+                internal_links.append(href)
+                
+        checks['internal_links_count'] = len(internal_links)
+        if len(internal_links) < 3:
+            issues.append(f'Kevés belső link: {len(internal_links)}')
+            recommendations.append('Növeld a belső linkek számát a jobb navigáció érdekében')
+            score -= 2
+            
+        # Page speed indicators
+        render_blocking_resources = []
+        
+        # CSS files in head
+        css_links = self.soup.find_all('link', {'rel': 'stylesheet'})
+        for css in css_links:
+            if css.get('href'):
+                render_blocking_resources.append('CSS: ' + css['href'][:50])
+                
+        # JS files in head
+        head_scripts = self.soup.head.find_all('script', src=True) if self.soup.head else []
+        for script in head_scripts:
+            render_blocking_resources.append('JS: ' + script['src'][:50])
+            
+        if len(render_blocking_resources) > 3:
+            issues.append(f'Sok render-blocking erőforrás: {len(render_blocking_resources)}')
+            recommendations.append('Optimalizáld a CSS/JS betöltést (async, defer)')
+            score -= 2
+            
+        return {
+            'score': max(0, score),
+            'checks': checks,
+            'render_blocking_count': len(render_blocking_resources),
+            'render_blocking_resources': render_blocking_resources[:5],
+            'issues': issues,
+            'recommendations': recommendations
+        }
+
+    def analyze_social_media_optimization(self):
+        """Social Media Optimization (SMO) elemzés"""
+        if self.soup is None:
+            return {'score': 0, 'issues': ['Nem sikerült betölteni az oldalt']}
+            
+        score = 10
+        issues = []
+        recommendations = []
+        
+        # Open Graph tags
+        og_tags = self.soup.find_all('meta', property=re.compile(r'^og:', re.I))
+        og_dict = {tag.get('property', '').lower(): tag.get('content', '') for tag in og_tags}
+        
+        required_og = ['og:title', 'og:description', 'og:image', 'og:url', 'og:type']
+        missing_og = [tag for tag in required_og if tag not in og_dict]
+        
+        if missing_og:
+            issues.append(f'Hiányzó Open Graph tagek: {", ".join(missing_og)}')
+            recommendations.append('Adj hozzá Open Graph meta tageket a social sharing-hez')
+            score -= len(missing_og)
+            
+        # Twitter Card tags
+        twitter_tags = self.soup.find_all('meta', attrs={'name': re.compile(r'^twitter:', re.I)})
+        twitter_dict = {tag.get('name', '').lower(): tag.get('content', '') for tag in twitter_tags}
+        
+        if not twitter_dict.get('twitter:card'):
+            issues.append('Nincs Twitter Card beállítva')
+            recommendations.append('Adj hozzá Twitter Card meta tageket')
+            score -= 2
+            
+        # Social media links
+        social_links = []
+        social_patterns = [
+            r'facebook\.com', r'twitter\.com', r'instagram\.com', 
+            r'linkedin\.com', r'youtube\.com', r'tiktok\.com'
+        ]
+        
+        for link in self.soup.find_all('a', href=True):
+            href = link['href']
+            for pattern in social_patterns:
+                if re.search(pattern, href, re.I):
+                    social_links.append(href)
+                    break
+                    
+        return {
+            'score': max(0, score),
+            'open_graph_tags': len(og_tags),
+            'twitter_tags': len(twitter_tags),
+            'social_links': len(set(social_links)),
+            'missing_og_tags': missing_og,
+            'issues': issues,
+            'recommendations': recommendations
+        }
+
+    def analyze_accessibility_seo(self):
+        """Akadálymentesítés és SEO kapcsolat elemzése"""
+        if self.soup is None:
+            return {'score': 0, 'issues': ['Nem sikerült betölteni az oldalt']}
+            
+        score = 10
+        issues = []
+        recommendations = []
+        
+        # Language attribute
+        html_lang = self.soup.html.get('lang') if self.soup.html else None
+        if not html_lang:
+            issues.append('Nincs lang attribútum a HTML elemen')
+            recommendations.append('Adj hozzá lang="hu" attribútumot a HTML taghez')
+            score -= 2
+            
+        # Heading hierarchy check
+        headings = []
+        for i in range(1, 7):
+            headings.extend([(f'h{i}', tag) for tag in self.soup.find_all(f'h{i}')])
+            
+        # Check for proper heading order
+        heading_levels = [int(h[0][1]) for h in headings]
+        if heading_levels:
+            prev_level = 0
+            for level in heading_levels:
+                if level > prev_level + 1:
+                    issues.append(f'Ugrás a címsor hierarchiában: H{prev_level} -> H{level}')
+                    recommendations.append('Használj folyamatos címsor hierarchiát (H1->H2->H3...)')
+                    score -= 1
+                    break
+                prev_level = level
+                
+        # Form labels
+        forms = self.soup.find_all('form')
+        form_issues = 0
+        for form in forms:
+            inputs = form.find_all(['input', 'textarea', 'select'])
+            for inp in inputs:
+                inp_id = inp.get('id')
+                inp_name = inp.get('name')
+                if inp_id:
+                    label = form.find('label', {'for': inp_id})
+                    if not label:
+                        form_issues += 1
+                        
+        if form_issues > 0:
+            issues.append(f'{form_issues} form elem nincs megfelelően címkézve')
+            recommendations.append('Használj <label> tageket minden form elemhez')
+            score -= min(form_issues, 3)
+            
+        # Skip links
+        skip_link = self.soup.find('a', {'href': re.compile(r'#.*content|#.*main', re.I)})
+        if not skip_link:
+            recommendations.append('Adj hozzá "skip to main content" linket')
+            
+        return {
+            'score': max(0, score),
+            'has_lang_attribute': bool(html_lang),
+            'language': html_lang,
+            'heading_hierarchy_correct': len(issues) == 0,
+            'form_accessibility_issues': form_issues,
+            'issues': issues,
+            'recommendations': recommendations
+        }
+
+    def analyze_core_web_vitals(self):
+        """Core Web Vitals elemzés (szimulált)"""
+        if self.response is None:
+            return {'score': 0, 'issues': ['Nem sikerült betölteni az oldalt']}
+            
+        score = 10
+        issues = []
+        recommendations = []
+        
+        # Page Size elemzés (LCP közelítés)
+        page_size_kb = len(self.response.content) / 1024
+        
+        # Largest Contentful Paint (LCP) becslés
+        lcp_estimate = 0.5 + (page_size_kb / 1000)  # Egyszerű becslés
+        if lcp_estimate > 4.0:
+            issues.append(f'Becsült LCP lassú: {lcp_estimate:.1f}s')
+            recommendations.append('Optimalizáld a legnagyobb tartalmi elemeket')
+            score -= 4
+        elif lcp_estimate > 2.5:
+            issues.append(f'Becsült LCP közepes: {lcp_estimate:.1f}s')
+            recommendations.append('Javítsd a legnagyobb tartalmi elem betöltési idejét')
+            score -= 2
+            
+        # First Input Delay (FID) - JavaScript elemzés
+        script_tags = self.soup.find_all('script')
+        js_size = 0
+        external_js = 0
+        
+        for script in script_tags:
+            if script.get('src'):
+                external_js += 1
+            else:
+                js_size += len(script.get_text())
+                
+        if js_size > 100000 or external_js > 10:  # 100KB belső JS vagy 10+ külső JS
+            issues.append(f'Sok JavaScript kód: {js_size/1000:.1f}KB + {external_js} külső fájl')
+            recommendations.append('Csökkentsd a JavaScript mennyiségét és használj code splitting-et')
+            score -= 3
+            
+        # Cumulative Layout Shift (CLS) - képek és CSS elemzés
+        images_without_dimensions = 0
+        for img in self.soup.find_all('img'):
+            if not (img.get('width') and img.get('height')):
+                images_without_dimensions += 1
+                
+        if images_without_dimensions > 3:
+            issues.append(f'{images_without_dimensions} kép nincs méretezve')
+            recommendations.append('Adj width és height attribútumokat a képekhez')
+            score -= 2
+            
+        return {
+            'score': max(0, score),
+            'estimated_lcp': round(lcp_estimate, 2),
+            'javascript_size_kb': round(js_size / 1024, 1),
+            'external_js_count': external_js,
+            'images_without_dimensions': images_without_dimensions,
+            'issues': issues,
+            'recommendations': recommendations
+        }
+
+    def analyze_local_seo(self):
+        """Helyi SEO elemzés"""
+        if self.soup is None:
+            return {'score': 0, 'issues': ['Nem sikerült betölteni az oldalt']}
+            
+        score = 10
+        issues = []
+        recommendations = []
+        local_signals = {}
+        
+        # Címkeresés
+        text_content = self.soup.get_text().lower()
+        
+        # Magyar városok és régiók (példa)
+        hungarian_cities = [
+            'budapest', 'debrecen', 'szeged', 'miskolc', 'pécs', 'győr', 'nyíregyháza',
+            'kecskemét', 'székesfehérvár', 'szombathely', 'szolnok', 'tatabánya'
+        ]
+        
+        found_cities = [city for city in hungarian_cities if city in text_content]
+        local_signals['cities_mentioned'] = found_cities
+        
+        # Telefonszám keresés
+        phone_pattern = r'(\+36|06)[\s-]?[1-9][\d\s-]{7,9}'
+        phones = re.findall(phone_pattern, text_content)
+        local_signals['phone_numbers'] = len(phones)
+        
+        if not phones:
+            issues.append('Nincs telefonszám megadva')
+            recommendations.append('Adj meg telefonszámot a helyi SEO-hoz')
+            score -= 2
+            
+        # Cím keresés (egyszerű)
+        address_keywords = ['utca', 'út', 'tér', 'körút', 'köz', 'sor', 'sétány']
+        has_address = any(keyword in text_content for keyword in address_keywords)
+        local_signals['has_address'] = has_address
+        
+        if not has_address:
+            recommendations.append('Adj meg teljes címet a jobb helyi SEO-ért')
+            
+        # Structured data - Local Business
+        local_business_schema = False
+        json_ld_scripts = self.soup.find_all('script', {'type': 'application/ld+json'})
+        
+        for script in json_ld_scripts:
+            try:
+                data = json.loads(script.string)
+                if isinstance(data, dict):
+                    schema_type = data.get('@type', '')
+                    if 'LocalBusiness' in schema_type or 'Organization' in schema_type:
+                        local_business_schema = True
+                        break
+            except:
+                continue
+                
+        local_signals['has_local_business_schema'] = local_business_schema
+        
+        if not local_business_schema:
+            issues.append('Nincs Local Business schema')
+            recommendations.append('Adj hozzá LocalBusiness structured data-t')
+            score -= 3
+            
+        return {
+            'score': max(0, score),
+            'local_signals': local_signals,
+            'issues': issues,
+            'recommendations': recommendations
+        }
+
+    def analyze_e_commerce_seo(self):
+        """E-commerce specifikus SEO elemzés"""
+        if self.soup is None:
+            return {'score': 0, 'issues': ['Nem sikerült betölteni az oldalt']}
+            
+        score = 10
+        issues = []
+        recommendations = []
+        ecommerce_signals = {}
+        
+        # Termék indikátorok keresés
+        product_indicators = [
+            'ár', 'vásárlás', 'kosár', 'szállítás', 'termék', 'bolt', 'shop',
+            'webshop', 'áruház', 'kedvezmény', 'akció', 'ft', 'forint'
+        ]
+        
+        text_content = self.soup.get_text().lower()
+        found_indicators = [indicator for indicator in product_indicators if indicator in text_content]
+        ecommerce_signals['product_indicators'] = len(found_indicators)
+        
+        # Ár megjelenítés
+        price_patterns = [
+            r'\d+[\s.]?\d*\s*ft',
+            r'\d+[\s.]?\d*\s*forint',
+            r'\d+[\s.]?\d*\s*huf',
+            r'\d+[\s,]\d{3}'
+        ]
+        
+        has_prices = any(re.search(pattern, text_content, re.I) for pattern in price_patterns)
+        ecommerce_signals['has_prices'] = has_prices
+        
+        # Product schema
+        product_schema = False
+        json_ld_scripts = self.soup.find_all('script', {'type': 'application/ld+json'})
+        
+        for script in json_ld_scripts:
+            try:
+                data = json.loads(script.string)
+                if isinstance(data, dict):
+                    schema_type = data.get('@type', '')
+                    if 'Product' in schema_type or 'Offer' in schema_type:
+                        product_schema = True
+                        break
+            except:
+                continue
+                
+        ecommerce_signals['has_product_schema'] = product_schema
+        
+        if len(found_indicators) > 3 and not product_schema:
+            issues.append('E-commerce jellegű oldal Product schema nélkül')
+            recommendations.append('Adj hozzá Product és Offer schema markup-ot')
+            score -= 3
+            
+        # Breadcrumb e-commerce specifikus
+        breadcrumb = self.soup.find('nav', {'aria-label': re.compile(r'breadcrumb', re.I)})
+        if len(found_indicators) > 5 and not breadcrumb:
+            issues.append('E-commerce oldalon nincs breadcrumb navigáció')
+            recommendations.append('Implementálj breadcrumb navigációt a kategóriákhoz')
+            score -= 2
+            
+        return {
+            'score': max(0, score),
+            'ecommerce_signals': ecommerce_signals,
+            'issues': issues,
+            'recommendations': recommendations
+        }
+
+    def analyze_competitor_keywords(self, competitor_urls=None):
+        """Konkurencia kulcsszó elemzés (egyszerű verzió)"""
+        if not competitor_urls:
+            return {'score': 10, 'message': 'Nincs konkurencia URL megadva'}
+            
+        # Itt lehetne implementálni a konkurencia elemzést
+        # Placeholder a jövőbeli fejlesztéshez
+        return {
+            'score': 10,
+            'message': 'Konkurencia elemzés még nem implementált',
+            'suggestions': ['Implementáld a competitor analysis modult']
+        }
+
+    def generate_seo_recommendations(self, analysis_results):
+        """AI-alapú SEO javaslatok generálása"""
+        all_issues = []
+        all_recommendations = []
+        priority_recommendations = []
+        
+        # Összes probléma és javaslat összegyűjtése
+        for module_name, module_data in analysis_results.items():
+            if isinstance(module_data, dict):
+                if 'issues' in module_data:
+                    all_issues.extend(module_data['issues'])
+                if 'recommendations' in module_data:
+                    all_recommendations.extend(module_data['recommendations'])
+        
+        # Prioritás alapú rendezés
+        high_priority_keywords = ['title', 'meta', 'h1', 'https', 'mobile']
+        medium_priority_keywords = ['image', 'link', 'performance', 'schema']
+        
+        for rec in all_recommendations:
+            rec_lower = rec.lower()
+            if any(keyword in rec_lower for keyword in high_priority_keywords):
+                priority_recommendations.append(('HIGH', rec))
+            elif any(keyword in rec_lower for keyword in medium_priority_keywords):
+                priority_recommendations.append(('MEDIUM', rec))
+            else:
+                priority_recommendations.append(('LOW', rec))
+        
+        # Top 10 legfontosabb javaslat
+        priority_recommendations.sort(key=lambda x: ['HIGH', 'MEDIUM', 'LOW'].index(x[0]))
+        
+        return {
+            'total_issues': len(all_issues),
+            'total_recommendations': len(all_recommendations),
+            'top_priority_recommendations': priority_recommendations[:10],
+            'quick_wins': [rec for priority, rec in priority_recommendations if priority == 'HIGH'][:5],
+            'summary': f"{len(all_issues)} probléma és {len(all_recommendations)} javaslat azonosítva"
+        }
+
+    def calculate_seo_improvement_potential(self, analysis_results):
+        """SEO fejlesztési potenciál kalkulátor"""
+        current_scores = {}
+        max_possible_scores = {}
+        improvement_potential = {}
+        
+        for module_name, module_data in analysis_results.items():
+            if isinstance(module_data, dict) and 'score' in module_data:
+                current_score = module_data['score']
+                max_score = 10  # Minden modul max 10 pont
+                
+                current_scores[module_name] = current_score
+                max_possible_scores[module_name] = max_score
+                improvement_potential[module_name] = max_score - current_score
+        
+        total_current = sum(current_scores.values())
+        total_max = sum(max_possible_scores.values())
+        total_improvement = sum(improvement_potential.values())
+        
+        improvement_percentage = (total_improvement / total_max * 100) if total_max > 0 else 0
+        
+        # Top 3 legnagyobb fejlesztési terület
+        top_improvements = sorted(
+            improvement_potential.items(), 
+            key=lambda x: x[1], 
+            reverse=True
+        )[:3]
+        
+        return {
+            'current_total_score': round(total_current, 1),
+            'maximum_possible_score': total_max,
+            'improvement_potential_points': round(total_improvement, 1),
+            'improvement_percentage': round(improvement_percentage, 1),
+            'top_improvement_areas': top_improvements,
+            'estimated_score_after_fixes': round(total_current + (total_improvement * 0.8), 1)  # 80% sikeres javítást feltételezve
+        }
 
 # Global változó az utolsó elemzés tárolásához
 current_analysis_data = None
@@ -800,6 +1367,10 @@ def export_analysis(format):
             'Performance Score', 'Page Size (KB)', 'Load Time (s)',
             'Mobile Score', 'Has Viewport', 'Responsive Images',
             'SEO Fundamentals Score', 'Robots.txt', 'Sitemap',
+            'Content Quality Score', 'Word Count', 'Paragraph Count',
+            'Technical SEO Score', 'HTTPS', 'Breadcrumb',
+            'Social Media Optimization Score', 'Open Graph Tags', 'Twitter Tags',
+            'Accessibility SEO Score', 'Lang Attribute', 'Form Accessibility Issues',
             'Analysis Time (s)'
         ])
         
@@ -836,6 +1407,18 @@ def export_analysis(format):
             current_analysis_data.get('seo_fundamentals', {}).get('score', 0),
             current_analysis_data.get('seo_fundamentals', {}).get('checks', {}).get('robots_txt', {}).get('exists', False),
             current_analysis_data.get('seo_fundamentals', {}).get('checks', {}).get('sitemap', {}).get('exists', False),
+            current_analysis_data.get('content_quality', {}).get('score', 0),
+            current_analysis_data.get('content_quality', {}).get('word_count', 0),
+            current_analysis_data.get('content_quality', {}).get('paragraph_count', 0),
+            current_analysis_data.get('technical_seo', {}).get('score', 0),
+            current_analysis_data.get('technical_seo', {}).get('checks', {}).get('https', False),
+            current_analysis_data.get('technical_seo', {}).get('render_blocking_count', 0),
+            current_analysis_data.get('social_media_optimization', {}).get('score', 0),
+            current_analysis_data.get('social_media_optimization', {}).get('open_graph_tags', 0),
+            current_analysis_data.get('social_media_optimization', {}).get('twitter_tags', 0),
+            current_analysis_data.get('accessibility_seo', {}).get('score', 0),
+            current_analysis_data.get('accessibility_seo', {}).get('has_lang_attribute', False),
+            current_analysis_data.get('accessibility_seo', {}).get('form_accessibility_issues', 0),
             current_analysis_data.get('analysis_time', 0)
         ])
         

@@ -1007,6 +1007,401 @@
                             
         </div>
     </section>
+<!-- Advanced Analytics Section -->
+<section id="advanced-analytics" class="bg-white">
+    <div class="max-w-6xl mx-auto">
+        <div class="mb-8 text-center">
+            <div class="inline-block vn-border-bottom pb-2 mb-6">
+                <span class="vn-label text-vn-gray">Haladó Elemzés</span>
+            </div>
+            <h2 class="vn-headline text-2xl text-vn-black mb-2">Részletes Analitikai Jelentés</h2>
+            <div class="w-16 h-px bg-vn-black mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <!-- SEO Javaslatok -->
+            <div class="bg-white portfolio-card p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <div class="w-4 h-4 bg-bauhaus-blue mb-3"></div>
+                        <h3 class="vn-headline text-lg text-vn-black">SEO Javaslatok</h3>
+                        <p class="vn-body text-sm text-vn-lightgray mt-2">AI-alapú javaslatok a SEO teljesítmény javítására</p>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <ul id="seo-recommendations-list" class="space-y-2">
+                        <!-- Javaslatok listája dinamikusan töltődik ide -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Fejlesztési Potenciál -->
+            <div class="bg-white portfolio-card p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <div class="w-4 h-4 bg-bauhaus-yellow mb-3"></div>
+                        <h3 class="vn-headline text-lg text-vn-black">Fejlesztési Potenciál</h3>
+                        <p class="vn-body text-sm text-vn-lightgray mt-2">Becsült SEO pontszám javulás a javaslatok implementálása után</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Jelenlegi pontszám</span>
+                        <span class="vn-body text-sm font-medium" id="current-score">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Potenciális pontszám</span>
+                        <span class="vn-body text-sm font-medium" id="potential-score">N/A</span>
+                    </div>
+                    <div id="improvement-potential-chart" class="mt-4">
+                        <!-- Diagram helye -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- További elemzési modulok -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Tartalom Minőség -->
+            <div class="bg-white portfolio-card p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <div class="w-4 h-4 bg-bauhaus-red mb-3"></div>
+                        <h3 class="vn-headline text-lg text-vn-black">Tartalom Minőség</h3>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Szószám</span>
+                        <span class="vn-body text-sm font-medium" id="word-count">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Bekezdések száma</span>
+                        <span class="vn-body text-sm font-medium" id="paragraph-count">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Átlagos mondathossz</span>
+                        <span class="vn-body text-sm font-medium" id="avg-sentence-length">N/A</span>
+                    </div>
+                    <div class="mt-4">
+                        <div class="vn-label text-vn-gray mb-2">Top kulcsszavak</div>
+                        <div class="vn-body text-sm bg-vn-bg p-3 border border-vn-border" id="top-keywords">N/A</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technikai SEO -->
+            <div class="bg-white portfolio-card p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <div class="w-4 h-4 bg-bauhaus-blue mb-3"></div>
+                        <h3 class="vn-headline text-lg text-vn-black">Technikai SEO</h3>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">HTTPS használat</span>
+                        <span class="vn-body text-sm font-medium" id="https-status">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Breadcrumb</span>
+                        <span class="vn-body text-sm font-medium" id="breadcrumb-status">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Render-blocking erőforrások</span>
+                        <span class="vn-body text-sm font-medium" id="render-blocking-count">N/A</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media Optimalizáció -->
+            <div class="bg-white portfolio-card p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <div class="w-4 h-4 bg-bauhaus-yellow mb-3"></div>
+                        <h3 class="vn-headline text-lg text-vn-black">Social Media Optimalizáció</h3>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Open Graph tagek</span>
+                        <span class="vn-body text-sm font-medium" id="og-tags-count">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Twitter Card tagek</span>
+                        <span class="vn-body text-sm font-medium" id="twitter-tags-count">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Közösségi média linkek</span>
+                        <span class="vn-body text-sm font-medium" id="social-links-count">N/A</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Akadálymentesítés -->
+            <div class="bg-white portfolio-card p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <div class="w-4 h-4 bg-bauhaus-red mb-3"></div>
+                        <h3 class="vn-headline text-lg text-vn-black">Akadálymentesítés</h3>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Nyelvi attribútum</span>
+                        <span class="vn-body text-sm font-medium" id="lang-attribute">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Címsor hierarchia</span>
+                        <span class="vn-body text-sm font-medium" id="heading-hierarchy">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Űrlap akadálymentesítési hibák</span>
+                        <span class="vn-body text-sm font-medium" id="form-accessibility-issues">N/A</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Web Vitals -->
+            <div class="bg-white portfolio-card p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <div class="w-4 h-4 bg-bauhaus-blue mb-3"></div>
+                        <h3 class="vn-headline text-lg text-vn-black">Core Web Vitals</h3>
+                        <p class="vn-body text-sm text-vn-lightgray mt-2">Becsült értékek</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Becsült LCP</span>
+                        <span class="vn-body text-sm font-medium"><span id="estimated-lcp">N/A</span>s</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">JavaScript méret</span>
+                        <span class="vn-body text-sm font-medium"><span id="js-size">N/A</span> KB</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Külső JS fájlok</span>
+                        <span class="vn-body text-sm font-medium" id="external-js-count">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Méretezetlen képek</span>
+                        <span class="vn-body text-sm font-medium" id="images-no-dimensions">N/A</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Helyi SEO -->
+            <div class="bg-white portfolio-card p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <div class="w-4 h-4 bg-bauhaus-yellow mb-3"></div>
+                        <h3 class="vn-headline text-lg text-vn-black">Helyi SEO</h3>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Említett városok</span>
+                        <span class="vn-body text-sm font-medium" id="local-cities">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Telefonszámok</span>
+                        <span class="vn-body text-sm font-medium" id="local-phone-numbers">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Local Business Schema</span>
+                        <span class="vn-body text-sm font-medium" id="local-business-schema">N/A</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- E-kereskedelmi SEO -->
+            <div class="bg-white portfolio-card p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <div class="w-4 h-4 bg-bauhaus-red mb-3"></div>
+                        <h3 class="vn-headline text-lg text-vn-black">E-kereskedelmi SEO</h3>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Termék indikátorok</span>
+                        <span class="vn-body text-sm font-medium" id="ecommerce-indicators">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Árak megjelenítve</span>
+                        <span class="vn-body text-sm font-medium" id="ecommerce-prices">N/A</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-vn-border">
+                        <span class="vn-body text-sm text-vn-lightgray">Product Schema</span>
+                        <span class="vn-body text-sm font-medium" id="ecommerce-product-schema">N/A</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Helper function to safely set text content
+function setTextContent(id, value, defaultValue = 'N/A') {
+    const element = document.getElementById(id);
+    if (element) {
+        element.textContent = (value !== undefined && value !== null && value !== '') ? String(value) : defaultValue;
+    }
+}
+
+// Helper function to safely set list items
+function setListItems(ulElementId, items, formatter) {
+    const ulElement = document.getElementById(ulElementId);
+    if (ulElement) {
+        ulElement.innerHTML = ''; // Clear existing
+        if (items && items.length > 0) {
+            items.forEach((itemData, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'vn-body text-xs bg-blue-50 text-blue-800 p-2 border-l-4 border-bauhaus-blue mb-1';
+                const formattedText = formatter(itemData);
+                listItem.textContent = formattedText;
+                ulElement.appendChild(listItem);
+            });
+        } else {
+            const listItem = document.createElement('li');
+            listItem.className = 'vn-body text-sm text-vn-lightgray';
+            listItem.textContent = 'Nincsenek elérhető adatok.';
+            ulElement.appendChild(listItem);
+        }
+    }
+}
+
+window.renderAdvancedAnalyticsData = function(data) {
+    if (!data) {
+        return;
+    }
+
+    // SEO Javaslatok
+    const seoRecs = data.seo_recommendations;
+    if (seoRecs && seoRecs.top_priority_recommendations) {
+        setListItems('seo-recommendations-list', seoRecs.top_priority_recommendations, rec => `[${rec[0]}] ${rec[1]}`);
+    } else {
+        setListItems('seo-recommendations-list', [], rec => '');
+    }
+
+    // Fejlesztési Potenciál
+    const impPot = data.improvement_potential;
+    if (impPot) {
+        setTextContent('current-score', impPot.current_total_score);
+        setTextContent('potential-score', impPot.estimated_score_after_fixes);
+    } else {
+        setTextContent('current-score', data.total_score || 'N/A');
+        setTextContent('potential-score', 'N/A');
+    }
+
+    // Tartalom Minőség
+    const cq = data.content_quality;
+    if (cq) {
+        setTextContent('word-count', cq.word_count);
+        setTextContent('paragraph-count', cq.paragraph_count);
+        setTextContent('avg-sentence-length', (cq.avg_sentence_length !== undefined && cq.avg_sentence_length !== null) ? Number(cq.avg_sentence_length).toFixed(2) : 'N/A');
+        setTextContent('top-keywords', (cq.top_keywords && cq.top_keywords.length > 0) ? cq.top_keywords.map(kw => `${kw[0]} (${kw[1]}x)`).join(', ') : 'N/A');
+    } else {
+        ['word-count', 'paragraph-count', 'avg-sentence-length', 'top-keywords'].forEach(id => setTextContent(id, 'N/A'));
+    }
+
+    // Technikai SEO
+    const techSeo = data.technical_seo;
+    if (techSeo && techSeo.checks) {
+        setTextContent('https-status', techSeo.checks.https ? 'Aktív' : 'Inaktív');
+        setTextContent('breadcrumb-status', techSeo.checks.breadcrumb ? 'Van' : 'Nincs');
+        setTextContent('render-blocking-count', techSeo.render_blocking_count || 0);
+    } else {
+        ['https-status', 'breadcrumb-status', 'render-blocking-count'].forEach(id => setTextContent(id, 'N/A'));
+    }
+
+    // Social Media Optimalizáció
+    const smo = data.social_media_optimization;
+    if (smo) {
+        setTextContent('og-tags-count', smo.open_graph_tags || 0);
+        setTextContent('twitter-tags-count', smo.twitter_tags || 0);
+        setTextContent('social-links-count', smo.social_links || 0);
+    } else {
+        ['og-tags-count', 'twitter-tags-count', 'social-links-count'].forEach(id => setTextContent(id, 'N/A'));
+    }
+
+    // Akadálymentesítés
+    const accSeo = data.accessibility_seo;
+    if (accSeo) {
+        setTextContent('lang-attribute', accSeo.language ? `${accSeo.language} (van)` : (accSeo.has_lang_attribute ? 'Van (nyelv nincs megadva)' : 'Nincs'));
+        setTextContent('heading-hierarchy', accSeo.heading_hierarchy_correct ? 'Helyes' : 'Hibás');
+        setTextContent('form-accessibility-issues', accSeo.form_accessibility_issues || 0);
+    } else {
+        ['lang-attribute', 'heading-hierarchy', 'form-accessibility-issues'].forEach(id => setTextContent(id, 'N/A'));
+    }
+
+    // Core Web Vitals
+    const cwv = data.core_web_vitals;
+    if (cwv) {
+        setTextContent('estimated-lcp', Number(cwv.estimated_lcp).toFixed(2));
+        setTextContent('js-size', Number(cwv.javascript_size_kb).toFixed(1));
+        setTextContent('external-js-count', cwv.external_js_count || 0);
+        setTextContent('images-no-dimensions', cwv.images_without_dimensions || 0);
+    } else {
+        ['estimated-lcp', 'js-size', 'external-js-count', 'images-no-dimensions'].forEach(id => setTextContent(id, 'N/A'));
+    }
+
+    // Helyi SEO
+    const localSeo = data.local_seo;
+    if (localSeo && localSeo.local_signals) {
+        const cities = localSeo.local_signals.cities_mentioned;
+        setTextContent('local-cities', (cities && cities.length > 0) ? cities.join(', ') : 'Nincs említve');
+        setTextContent('local-phone-numbers', localSeo.local_signals.phone_numbers || 0);
+        setTextContent('local-business-schema', localSeo.local_signals.has_local_business_schema ? 'Van' : 'Nincs');
+    } else {
+        ['local-cities', 'local-phone-numbers', 'local-business-schema'].forEach(id => setTextContent(id, 'N/A'));
+    }
+
+    // E-kereskedelmi SEO
+    const eCommerceSeo = data.e_commerce_seo;
+    if (eCommerceSeo && eCommerceSeo.ecommerce_signals) {
+        setTextContent('ecommerce-indicators', eCommerceSeo.ecommerce_signals.product_indicators || 0);
+        setTextContent('ecommerce-prices', eCommerceSeo.ecommerce_signals.has_prices ? 'Van' : 'Nincs');
+        setTextContent('ecommerce-product-schema', eCommerceSeo.ecommerce_signals.has_product_schema ? 'Van' : 'Nincs');
+    } else {
+        ['ecommerce-indicators', 'ecommerce-prices', 'ecommerce-product-schema'].forEach(id => setTextContent(id, 'N/A'));
+    }
+};
+
+// Function to initialize advanced analytics when called from main script
+window.initAdvancedAnalytics = function(analysisData) {
+    if (analysisData) {
+        window.renderAdvancedAnalyticsData(analysisData);
+    } else {
+        // Próbáljuk meg máshonnan is elérni az adatokat
+        if (window.analysisData) {
+            window.renderAdvancedAnalyticsData(window.analysisData);
+        } else if (window.currentAnalysisData) {
+            window.renderAdvancedAnalyticsData(window.currentAnalysisData);
+        }
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Check if global analysis data is available
+    if (window.analysisData) {
+       window.renderAdvancedAnalyticsData(window.analysisData);
+    } else if (window.currentAnalysisData) {
+       window.renderAdvancedAnalyticsData(window.currentAnalysisData);
+    }
+    
+    // Ellenőrizzük 1 másodperc múlva is
+    setTimeout(() => {
+        if (window.analysisData) {
+            window.renderAdvancedAnalyticsData(window.analysisData);
+        } else if (window.currentAnalysisData) {
+            window.renderAdvancedAnalyticsData(window.currentAnalysisData);
+        }
+    }, 1000);
+});
+</script>
 
     <!-- Features Section -->
     <section id="features" class="py-20 bg-vn-black text-white">
@@ -1289,8 +1684,19 @@
                         const data = await response.json();
 
                         if (!response.ok) {
-                            throw new Error(data.error || 'Ismeretlen hiba történt');
-                        }                        this.analysisData = data;
+                            throw new Error(data.error || 'Ismeretlen hiba történt');                        }                        this.analysisData = data;
+                        
+                        // Initialize Advanced Analytics
+                        if (window.initAdvancedAnalytics && typeof window.initAdvancedAnalytics === 'function') {
+                            console.log('[DEBUG] Meghívom a window.initAdvancedAnalytics függvényt az adatokkal:', data);
+                            window.initAdvancedAnalytics(data);
+                        } else {
+                            console.warn('[DEBUG] window.initAdvancedAnalytics függvény nem elérhető!');
+                            // Fallback: set global variable
+                            window.analysisData = data;
+                            window.currentAnalysisData = data;
+                        }
+                        
                         this.showNotification('Elemzés sikeresen befejezve! 🎉', 'success');
                         
                         // Scroll to results
