@@ -1,12 +1,12 @@
-# 🔍 Advanced SEO Analyzer - Web Scraper & SEO Audit Tool
+# 🔍 [V.N.] Advanced SEO Analyzer - Professional Web Audit Platform
 
 ## 📋 Projekt Leírása
 
-Ez egy fejlett SEO elemző alkalmazás, amely komplex weboldal auditálást és SEO vizsgálatot végez. A Flask-alapú webes alkalmazás modern, responsive felhasználói felülettel rendelkezik, és átfogó SEO jelentéseket készít.
+Egy professzionális SEO elemző platform, amely ötvözi a modern tervezési elveket a hatékony SEO betekintésekkel. Ez a fejlett Flask-alapú webes alkalmazás átfogó weboldal auditálást végez, Bauhaus-ihlette design rendszerrel és enterprise-szintű jelentéskészítéssel.
 
 ## ✨ Fő Funkciók
 
-### 🎯 SEO Elemzési Modulok
+### 🎯 Alapvető SEO Elemzési Modulok
 - **Title Tag Elemzés**: Hossz, tartalom, kulcsszavak optimalizálás
 - **Meta Description Vizsgálat**: Karakterszám, releváns tartalom ellenőrzés
 - **Heading Struktúra**: H1-H6 elemek hierarchiája és optimalizálása
@@ -17,12 +17,25 @@ Ez egy fejlett SEO elemző alkalmazás, amely komplex weboldal auditálást és 
 - **Mobilbarát Vizsgálat**: Responsive design és viewport ellenőrzés
 - **SEO Alapok**: Robots.txt, sitemap, canonical URL-ek
 
+### 🚀 Haladó Analitikai Modulok
+- **Tartalom Minőség Elemzése**: Szószám, bekezdések, mondathossz, kulcsszó sűrűség
+- **Technikai SEO Audit**: HTTPS, breadcrumb, render-blocking erőforrások
+- **Social Media Optimalizáció**: Open Graph, Twitter Card, közösségi linkek
+- **Akadálymentességi Audit**: Nyelvi attribútumok, címsor hierarchia, űrlap accessibility
+- **Core Web Vitals**: LCP becslés, JavaScript méret, külső erőforrások
+- **Helyi SEO Elemzés**: Városok említése, telefonszámok, Local Business schema
+- **E-kereskedelmi SEO**: Termék indikátorok, árak, Product schema
+- **AI-alapú SEO Javaslatok**: Priorizált fejlesztési területek
+- **Fejlesztési Potenciál Kalkulátor**: Becsült pontszám javulás
+
 ### 📊 Jelentések és Exportálás
 - **Interaktív Dashboard**: Grafikus eredmények és statisztikák
-- **Pontozó Rendszer**: 0-100 pontos skála minden kategóriában
+- **Haladó Analitikai Jelentés**: 9 speciális elemzési modul
+- **Pontozó Rendszer**: 0-10 pontos skála súlyozott értékeléssel
 - **CSV Exportálás**: Részletes adatok letölthetők
-- **Javaslatok**: Automatikus optimalizálási tanácsok
-- **Historikus Adatok**: Elemzések tárolása és összehasonlítás
+- **AI-alapú Javaslatok**: Automatikus optimalizálási tanácsok prioritással
+- **Fejlesztési Roadmap**: Becsült pontszám javulás kalkuláció
+- **Print-Ready Jelentések**: Professzionális PDF exportálás
 
 ## 🛠️ Technológiai Stack
 
@@ -42,9 +55,12 @@ Ez egy fejlett SEO elemző alkalmazás, amely komplex weboldal auditálást és 
 
 ### Design Rendszer
 - **Bauhaus Színpaletta**: Piros (#D73527), Kék (#004C97), Sárga (#FAD201)
+- **VN Tipográfiai Rendszer**: Poppins font family, strukturált hierachia
 - **Responsive Design**: Mobile-first megközelítés
 - **Accessibility**: WCAG 2.1 kompatibilis
-- **Modern UI/UX**: Glassmorphism és minimalizmus
+- **Modern UI/UX**: Bauhaus geometrikus elemek, portfolio-card rendszer
+- **Color System**: vn-black, vn-gray, vn-lightgray, vn-bg, vn-border
+- **Portfolio Theme**: Digitális portfólió projekt esztétika
 
 ## 🚀 Telepítés és Indítás
 
@@ -82,11 +98,13 @@ Az alkalmazás elérhető lesz a `http://localhost:5002` címen.
 
 ```
 web-screaper/
-├── app.py                 # Fő alkalmazás fájl
+├── app.py                 # Fő alkalmazás fájl (1440+ sor)
 ├── requirements.txt       # Python függőségek
 ├── readme.md             # Projekt dokumentáció
+├── LICENSE               # Licenc fájl
 └── templates/
-    └── index.html        # Főoldal template
+    ├── index.html        # Főoldal template (1537+ sor)
+    └── advanced.html     # Haladó analitika modul template
 ```
 
 ## 🔧 Használat
@@ -94,8 +112,14 @@ web-screaper/
 ### Alapvető SEO Elemzés
 1. Nyissa meg a böngészőben: `http://localhost:5002`
 2. Adja meg az elemezni kívánt URL-t
-3. Kattintson az "Elemzés Indítása" gombra
-4. Várja meg az eredményeket
+3. Kattintson az "Elemzés Futtatása" gombra
+4. Várja meg az eredményeket (fejlett progress indikátorokkal)
+5. Tekintse meg a részletes analitikai jelentést
+
+### Haladó Analitika
+- **Automatikus inicializálás**: A haladó analitika automatikusan betöltődik
+- **Valós idejű adatok**: Az adatok azonnal megjelennek az elemzés után
+- **Interaktív elemek**: Kattintható kategóriák és részletes betekintések
 
 ### Exportálás
 - **CSV formátum**: Részletes adatok táblázatos formában
@@ -103,70 +127,136 @@ web-screaper/
 
 ## 📈 Elemzési Kategóriák
 
+### Alapvető Modulok (1-9)
+
 ### 1. Title Tag (0-10 pont)
 - Hossz optimalizálás (50-60 karakter)
 - Kulcsszó elhelyezés
 - Egyediség ellenőrzés
+- Márkánév integráció
 
 ### 2. Meta Description (0-10 pont)
-- Karakterszám vizsgálat (150-160 karakter)
+- Karakterszám vizsgálat (120-160 karakter)
 - Tartalom relevancia
 - Call-to-action jelenléte
+- Kulcsszó optimalizálás
 
 ### 3. Heading Struktúra (0-10 pont)
 - H1 egyediség és optimalizálás
 - Hierarchikus felépítés (H1-H6)
 - Kulcsszó disztribúció
+- Címsor számolás és korlátozás
 
 ### 4. Képek Optimalizálás (0-10 pont)
 - Alt szöveg lefedettség
 - Fájlméret optimalizálás
 - Responsive képek
+- Lazy loading támogatás
 
 ### 5. Link Audit (0-10 pont)
 - Belső linkek száma és minősége
 - Külső linkek validálása
 - Anchor text optimalizálás
+- Nofollow link elemzés
 
 ### 6. Strukturált Adatok (0-10 pont)
 - JSON-LD validálás
 - Schema.org típusok
 - Rich snippets potenciál
+- Open Graph integráció
 
 ### 7. Teljesítmény (0-10 pont)
 - Oldal betöltési idő
 - Fájlméret optimalizálás
 - Erőforrás betöltés
+- Compression támogatás
 
 ### 8. Mobilbarát Design (0-10 pont)
 - Viewport meta tag
 - Responsive elemek
 - Touch-friendly felület
+- Media query elemzés
 
 ### 9. SEO Alapok (0-10 pont)
 - Robots.txt elérhetőség
 - XML sitemap
 - Canonical URL-ek
-
-### 10. Technikai SEO (0-10 pont)
 - Favicon beállítás
-- Hreflang attributumok
-- URL struktúra
+
+### Haladó Modulok (10-18)
+
+### 10. Tartalom Minőség (0-10 pont)
+- Szószám elemzés (min 300 szó)
+- Bekezdés struktúra
+- Átlagos mondathossz
+- Top kulcsszavak azonosítása
+- Olvashatósági indexek
+
+### 11. Technikai SEO (0-10 pont)
+- HTTPS használat
+- Breadcrumb navigáció
+- URL struktúra optimalizálás
+- Render-blocking erőforrások
+- Internal linking mélység
+
+### 12. Social Media Optimalizáció (0-10 pont)
+- Open Graph meta tagek
+- Twitter Card implementáció
+- Közösségi média linkek
+- Social sharing optimalizálás
+
+### 13. Akadálymentességi Audit (0-10 pont)
+- Lang attribútum beállítás
+- Címsor hierarchia helyessége
+- Form accessibility
+- Skip navigation linkek
+
+### 14. Core Web Vitals (0-10 pont)
+- Largest Contentful Paint (LCP) becslés
+- JavaScript bundle méret
+- Külső erőforrások száma
+- Image dimension optimalizálás
+
+### 15. Helyi SEO (0-10 pont)
+- Földrajzi lokáció említések
+- Telefonszám megjelenítés
+- Local Business schema
+- Cím információk
+
+### 16. E-kereskedelmi SEO (0-10 pont)
+- Termék indikátorok
+- Ár megjelenítés
+- Product schema markup
+- E-commerce specifikus elemek
+
+### 17. AI-alapú SEO Javaslatok
+- Prioritás szerinti rangsorolás (HIGH/MEDIUM/LOW)
+- Quick wins azonosítása
+- Összegző jelentés generálás
+
+### 18. Fejlesztési Potenciál Kalkulátor
+- Jelenlegi teljes pontszám
+- Becsült javulás implementáció után
+- Top 3 fejlesztési terület
+- ROI becslés
 
 ## 🎨 Felhasználói Felület
 
 ### Design Elemek
-- **Bauhaus Stílus**: Geometrikus formák, tiszta vonalvezetés
-- **Színpaletta**: Klasszikus Bauhaus színek modern interpretációban
-- **Tipográfia**: Playfair Display (serif) és IBM Plex (sans-serif)
-- **Ikonok**: Font Awesome 6.5.0
-- **Grafikus Elemek**: Chart.js diagramok és statisztikák
+- **Bauhaus Stílus**: Geometrikus formák (négyzet, kör, háromszög), tiszta vonalvezetés
+- **VN Színpaletta**: Klasszikus Bauhaus színek modern interpretációban
+- **Tipográfia**: Poppins font family, strukturált hierachia (vn-display, vn-headline, vn-body, vn-label)
+- **Ikonok**: Geometrikus Bauhaus elemek, színes akcentek
+- **Portfolio Cards**: Hover effektusokkal, shadow rendszerrel
+- **Responsive Grid**: 1-3 oszlopos elrendezés eszköz mérettől függően
 
 ### Interaktivitás
-- **Alpine.js**: Reaktív komponensek
-- **Smooth Scrolling**: Folyamatos navigáció
-- **Loading States**: Betöltési indikátorok
-- **Toast Notifications**: Felhasználói visszajelzések
+- **Alpine.js**: Reaktív komponensek, state management
+- **Smooth Scrolling**: Folyamatos navigáció, anchor linkek
+- **Loading States**: Többlépcsős progress indikátorok
+- **Toast Notifications**: Bauhaus-stílusú felhasználói visszajelzések
+- **Mobile Navigation**: Hamburger menü, touch-friendly
+- **Advanced Analytics**: Valós idejű adatfrissítés, dinamikus tartalom
 
 ## 🔒 Biztonsági Megfontolások
 
