@@ -49,7 +49,8 @@
                 }
             }
         }
-    </script>    <style>
+    </script>    
+    <style>
         /* vn Typography System */
         .vn-display {
             font-family: 'Playfair Display', serif;
@@ -186,22 +187,44 @@
         /* Smooth scrolling enhancement */
         html {
             scroll-behavior: smooth;
+        }        /* Navigation active state */
+        .smooth-scroll {
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        /* Navigation active state */
+        .smooth-scroll:hover {
+            color: #000000 !important;
+        }
+
         .smooth-scroll.active {
             color: #000000 !important;
-            position: relative;
+            font-weight: 600;
         }
 
         .smooth-scroll.active::after {
             content: '';
             position: absolute;
-            bottom: -4px;
-            left: 0;
-            right: 0;
-            height: 2px;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
             background: #000000;
+            border-radius: 50%;
+        }
+
+        /* Mobile menu improvements */
+        .mobile-nav-link {
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            border-left-color: #000000;
+            background-color: #FAFAFA;
+            padding-left: 1rem;
         }
     </style>
 </head>
@@ -216,30 +239,32 @@
                         <div class="w-8 h-8 bauhaus-square mr-3 opacity-80"></div>
                         <h1 class="text-xl font-bold text-vn-black vn-headline">[V.N.]</h1>
                     </div>
-                </div>                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#analyzer" class="vn-label text-vn-gray hover:text-vn-black transition-colors smooth-scroll">Elemzés</a>
+                </div>                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#analyzer" class="vn-label text-vn-gray hover:text-vn-black transition-colors smooth-scroll active">Elemzés</a>
                     <a href="#results" class="vn-label text-vn-gray hover:text-vn-black transition-colors smooth-scroll">Eredmények</a>
                     <a href="#features" class="vn-label text-vn-gray hover:text-vn-black transition-colors smooth-scroll">Funkciók</a>
                 </div>
                 <div class="md:hidden">
-                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-vn-gray hover:text-vn-black">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-vn-gray hover:text-vn-black transition-colors p-2" :class="mobileMenuOpen ? 'text-vn-black' : ''">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" x-show="!mobileMenuOpen">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" x-show="mobileMenuOpen">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
-            </div>
-            <!-- Mobile Menu -->
-            <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden absolute top-16 left-0 right-0 bg-white border-b border-vn-border shadow-lg">
-                <div class="px-4 py-2 space-y-2">
-                    <a href="#analyzer" @click="mobileMenuOpen = false" class="block py-2 vn-label text-vn-gray hover:text-vn-black transition-colors smooth-scroll">Elemzés</a>
-                    <a href="#results" @click="mobileMenuOpen = false" class="block py-2 vn-label text-vn-gray hover:text-vn-black transition-colors smooth-scroll">Eredmények</a>
-                    <a href="#features" @click="mobileMenuOpen = false" class="block py-2 vn-label text-vn-gray hover:text-vn-black transition-colors smooth-scroll">Funkciók</a>
+            </div>            <!-- Mobile Menu -->
+            <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden absolute top-16 left-0 right-0 bg-white border-b border-vn-border shadow-lg z-40">
+                <div class="px-0 py-2">
+                    <a href="#analyzer" @click="mobileMenuOpen = false" class="block py-3 px-4 vn-label text-vn-gray hover:text-vn-black transition-colors smooth-scroll mobile-nav-link">Elemzés</a>
+                    <a href="#results" @click="mobileMenuOpen = false" class="block py-3 px-4 vn-label text-vn-gray hover:text-vn-black transition-colors smooth-scroll mobile-nav-link">Eredmények</a>
+                    <a href="#features" @click="mobileMenuOpen = false" class="block py-3 px-4 vn-label text-vn-gray hover:text-vn-black transition-colors smooth-scroll mobile-nav-link">Funkciók</a>
                 </div>
             </div>
-            </div>
         </div>
-    </nav>    <!-- Hero Section -->
+    </nav><!-- Hero Section -->
     <section class="pt-24 pb-16 portfolio-hero relative">
         <!-- Bauhaus geometric elements -->
         <div class="bauhaus-shape top-20 left-10 w-16 h-16 bauhaus-circle opacity-60"></div>
@@ -346,7 +371,7 @@
                     <div class="mt-8 p-6 bg-vn-bg border border-vn-border">
                         <h4 class="vn-headline text-lg text-vn-black mb-3">Technikai Specifikációk</h4>
                         <div class="newspaper-column vn-body text-sm text-vn-lightgray">
-                            <p class="mb-2">Ez az elemző eszköz fejlett webkaparási technikákat alkalmaz a HTML struktúra, meta tagek, címsor hierarchia, képoptimalizálás és link architektúra vizsgálatára. A pontozási algoritmus a jelenlegi SEO legjobb gyakorlatok és akadálymentességi irányelvek szerint súlyozza a tényezőket.</p>
+                            <p class="mb-2">Ez az elemző eszköz fejlett webscraping technikákat alkalmaz a HTML struktúra, meta tagek, címsor hierarchia, képoptimalizálás és link architektúra vizsgálatára. A pontozási algoritmus a jelenlegi SEO best practices és akadálymentességi irányelvek szerint súlyozza a tényezőket.</p>
                             <p>Az eredményeket egy kifinomult értékelő rendszer dolgozza fel, amely hasznosítható betekintést nyújt a technikai optimalizáláshoz, tartalomfejlesztéshez és felhasználói élmény javításához.</p>
                         </div>
                     </div>
@@ -380,7 +405,8 @@
                         </div>
                     </div>
                 </div>
-            </div>            <!-- Results Section -->
+            </div>            
+            <!-- Results Section -->
             <div id="results" x-show="analysisData && !isLoading">
                 <!-- Overall Score Card -->
                 <div class="max-w-6xl mx-auto mb-16">
@@ -977,34 +1003,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Insights Section -->
-                <div class="max-w-6xl mx-auto mb-16">
-                    <div class="bg-white portfolio-card p-12 ">
-                        <div class="text-center mb-12">
-                            <h3 class="vn-headline text-2xl text-vn-black mb-4">Optimalizálási Betekintések</h3>
-                            <div class="w-16 h-px bg-vn-black mx-auto mb-6"></div>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                            <div>
-                                <div class="flex items-center mb-6">
-                                    <div class="w-3 h-3 bg-bauhaus-red mr-4"></div>
-                                    <h4 class="vn-headline text-xl text-vn-black">Kritikus Problémák</h4>
-                                </div>
-                                <div class="space-y-3" x-html="getCriticalIssues()"></div>
-                            </div>
-                            
-                            <div>
-                                <div class="flex items-center mb-6">
-                                    <div class="w-3 h-3 bg-bauhaus-blue mr-4"></div>
-                                    <h4 class="vn-headline text-xl text-vn-black">Fejlesztési Lehetőségek</h4>
-                                </div>
-                                <div class="space-y-3" x-html="getImprovementTips()"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
                             
         </div>
@@ -1019,7 +1017,7 @@
                 </div>
                 <h2 class="vn-headline text-4xl md:text-5xl text-white mb-8">
                     Technikai Kiválóság
-                    <span class="block text-bauhaus-red">& Tervezési Innováció</span>
+                    <span class="block text-bauhaus-red">és Tervezési Innováció</span>
                 </h2>
                 <p class="vn-body text-xl text-white opacity-80 max-w-3xl mx-auto">
                     Ez a projekt bemutatja a fejlett webfejlesztési készségeket, a modern tervezési elveket,
@@ -1154,50 +1152,96 @@
                     console.log('SEO Elemző Pro inicializálva');
                     this.initSmoothScroll();
                 },                initSmoothScroll() {
-                    // Smooth scroll functionality for navigation links
-                    document.querySelectorAll('.smooth-scroll').forEach(link => {
+                    // Simple and reliable smooth scroll for navigation
+                    const navLinks = document.querySelectorAll('.smooth-scroll');
+                    
+                    navLinks.forEach(link => {
                         link.addEventListener('click', (e) => {
                             e.preventDefault();
-                            const targetId = link.getAttribute('href').substring(1);
-                            const targetElement = document.getElementById(targetId);
-                            if (targetElement) {
-                                const offsetTop = targetElement.offsetTop - 80; // Account for fixed nav
-                                window.scrollTo({
-                                    top: offsetTop,
-                                    behavior: 'smooth'
-                                });
-                                
-                                // Update active state
-                                document.querySelectorAll('.smooth-scroll').forEach(l => l.classList.remove('active'));
-                                link.classList.add('active');
-                            }
-                        });
-                    });
-
-                    // Highlight active section on scroll
-                    window.addEventListener('scroll', () => {
-                        const sections = ['analyzer', 'results', 'features'];
-                        const scrollPos = window.scrollY + 100;
-                        
-                        sections.forEach(sectionId => {
-                            const section = document.getElementById(sectionId);
-                            const navLink = document.querySelector(`a[href="#${sectionId}"]`);
+                            e.stopPropagation();
                             
-                            if (section && navLink) {
-                                const sectionTop = section.offsetTop;
-                                const sectionHeight = section.offsetHeight;
-                                
-                                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                                    document.querySelectorAll('.smooth-scroll').forEach(l => l.classList.remove('active'));
-                                    navLink.classList.add('active');
+                            const targetId = link.getAttribute('href');
+                            if (targetId && targetId.startsWith('#')) {
+                                const targetElement = document.querySelector(targetId);
+                                if (targetElement) {
+                                    // Calculate offset for fixed navbar
+                                    const navHeight = 80;
+                                    const elementPosition = targetElement.getBoundingClientRect().top;
+                                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+                                    
+                                    // Smooth scroll to target
+                                    window.scrollTo({
+                                        top: offsetPosition,
+                                        behavior: 'smooth'
+                                    });
+                                    
+                                    // Update active states
+                                    this.updateActiveNavigation(targetId);
+                                    
+                                    // Close mobile menu if open
+                                    this.mobileMenuOpen = false;
                                 }
                             }
                         });
                     });
+
+                    // Track scroll position for active navigation
+                    let scrollTimeout;
+                    window.addEventListener('scroll', () => {
+                        clearTimeout(scrollTimeout);
+                        scrollTimeout = setTimeout(() => {
+                            this.updateActiveNavigationOnScroll();
+                        }, 100);
+                    });
+                },
+
+                updateActiveNavigation(activeId) {
+                    const navLinks = document.querySelectorAll('.smooth-scroll');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === activeId) {
+                            link.classList.add('active');
+                        }
+                    });
+                },
+
+                updateActiveNavigationOnScroll() {
+                    const sections = [
+                        { id: 'analyzer', element: document.getElementById('analyzer') },
+                        { id: 'results', element: document.getElementById('results') },
+                        { id: 'features', element: document.getElementById('features') }
+                    ];
+
+                    const scrollPos = window.scrollY + 120; // Account for navbar
+                    let activeSection = null;
+
+                    sections.forEach(section => {
+                        if (section.element) {
+                            const sectionTop = section.element.offsetTop;
+                            const sectionBottom = sectionTop + section.element.offsetHeight;
+                            
+                            if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                                activeSection = `#${section.id}`;
+                            }
+                        }
+                    });
+
+                    if (activeSection) {
+                        this.updateActiveNavigation(activeSection);
+                    }
                 },
 
                 scrollToAnalyzer() {
-                    document.getElementById('analyzer').scrollIntoView({ behavior: 'smooth' });
+                    const target = document.getElementById('analyzer');
+                    if (target) {
+                        const navHeight = 80;
+                        const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 },
 
                 async analyzeWebsite() {
